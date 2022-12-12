@@ -24,6 +24,18 @@ const Slide = () => {
               Sign up for the daily newsletter
             </p>
           </div>
+          <div className="absolute flex justify-end transform -translate-y-1/2 lg:left-24  top-28 lg:top-3/4 px-5">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                className="input  w-full pr-16"
+              />
+              <button className="btn bg-[#3BB77E] border-none absolute top-0  right-0 rounded-l-none">
+                Subscribe
+              </button>
+            </div>
+          </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a
               href="#slide4"
