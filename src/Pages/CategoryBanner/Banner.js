@@ -4,7 +4,7 @@ import React from "react";
 const Banner = ({ banner }) => {
   console.log(banner);
   return (
-    <div className="card ">
+    <div className="card">
       <figure>
         <img src={banner?.image} alt="fruit" />
       </figure>
