@@ -2,8 +2,8 @@ import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 const Product = ({ product }) => {
-  console.log(product);
   const { name, image, price, category, shop, rating } = product;
+
   return (
     <div className="card lg:w-68 md:w-68 w-68  shadow hover:shadow-[#3BB77E]">
       <figure>
@@ -12,7 +12,7 @@ const Product = ({ product }) => {
       <div className="px-3 ">
         <h1>{category}</h1>
         <h2 className="card-title text-[#253D4E]">
-          {name && name?.split(0, 20)}
+          {name.split(0, 15) + "..."}
         </h2>
         <div className="flex text-yellow-400">
           <StarIcon className="h-6 w-6" />
@@ -25,7 +25,7 @@ const Product = ({ product }) => {
         <h1 className="flex">
           By <p className="text-[#3BB77E] ml-1">{shop}</p>
         </h1>
-        <div className="card-actions justify-between">
+        <div className="flex justify-between pb-6">
           <button className="text-xl font-semibold text-[#3BB77E]">
             ${price}
           </button>

@@ -2,7 +2,6 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 const Banner = ({ banner }) => {
-  console.log(banner);
   return (
     <div className="card">
       <figure>
