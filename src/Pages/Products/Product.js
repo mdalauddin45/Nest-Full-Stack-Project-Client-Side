@@ -5,13 +5,15 @@ const Product = ({ product }) => {
   console.log(product);
   const { name, image, price, category, shop, rating } = product;
   return (
-    <div className="card lg:w-76 w-96 bg-base-100 shadow hover:shadow-[#3BB77E]">
+    <div className="card lg:w-68 md:w-68 w-68  shadow hover:shadow-[#3BB77E]">
       <figure>
-        <img className="w-72 pt-6" src={image} alt="Shoes" />
+        <img className="w-72 pt-6" src={image} alt="/" />
       </figure>
-      <div className="card-body">
-        <p>{category}</p>
-        <h2 className="card-title text-[#253D4E]">{name}</h2>
+      <div className="px-3 ">
+        <h1>{category}</h1>
+        <h2 className="card-title text-[#253D4E]">
+          {name && name?.split(0, 20)}
+        </h2>
         <div className="flex text-yellow-400">
           <StarIcon className="h-6 w-6" />
           <StarIcon className="h-6 w-6" />
