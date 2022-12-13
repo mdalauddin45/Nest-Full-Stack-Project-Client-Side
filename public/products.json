@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name":"Seeds of Change Organic Quinoa, Brown, & Red Rice",
+        "image":"https://i.ibb.co/891Btyf/product-2-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 2,
+        "name":"All Natural Italian-Style Chicken Meatballs",
+        "image":"https://i.ibb.co/HD9TY79/product-1-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 3,
+        "name":"Angie’s Boomchickapop Sweet & Salty Kettle Corn",
+        "image":"https://i.ibb.co/93PM7MS/product-4-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 4,
+        "name":"Foster Farms Takeout Crispy Classic Buffalo Wings",
+        "image":"https://i.ibb.co/gTCQwyh/product-3-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 5,
+        "name":"Blue Diamond Almonds Lightly Salted Vegetables",
+        "image":"https://i.ibb.co/wSp8rh6/product-5-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 6,
+        "name":"Chobani Complete Vanilla Greek Yogurt",
+        "image":"https://i.ibb.co/y0ZNhXZ/product-6-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 7,
+        "name":"Canada Dry Ginger Ale – 2 L Bottle - 200ml - 400g",
+        "image":"https://i.ibb.co/hMTJySv/product-8-2.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 8,
+        "name":"Encore Seafoods Stuffed Alaskan Salmon",
+        "image":"https://i.ibb.co/c10L3VQ/product-7-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 9,
+        "name":"Gorton’s Beer Battered Fish Fillets with soft paper",
+        "image":"https://i.ibb.co/kHQkZrh/product-9-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    },
+    {
+        "id": 10,
+        "name":"Haagen-Dazs Caramel Cone Ice Cream Ketchup",
+        "image":"https://i.ibb.co/CK3qjD4/product-10-1.jpg",
+        "price": 28.85,
+        "category": "Snack",
+        "shop": "NestFood",
+        "rating": 4.0        
+    }
+]
