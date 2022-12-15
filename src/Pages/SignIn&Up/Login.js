@@ -26,7 +26,7 @@ const Login = () => {
         // Get Token
         setLoading(false);
         setAuthToken(result.user);
-        navigate(from, { replace: true });
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message);

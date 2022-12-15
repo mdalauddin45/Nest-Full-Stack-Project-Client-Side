@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setAuthToken } from "../../api/auth";
+import { makeHost } from "../../api/User";
 import PrimaryButton from "../../components/Button/PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -11,7 +12,6 @@ const SignUp = () => {
   const {
     createUser,
     updateUserProfile,
-    verifyEmail,
     loading,
     setLoading,
     signInWithGoogle,
@@ -51,10 +51,11 @@ const SignUp = () => {
         createUser(email, password)
           .then((result) => {
             setAuthToken(result.user);
+            console.log(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
                 if (userData.role === "host") {
-                  makeSealer(userData);
+                  makeHost(userData);
                 }
                 toast.success("Sign up Succesfuly");
                 setLoading(false);

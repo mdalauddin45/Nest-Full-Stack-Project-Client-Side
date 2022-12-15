@@ -7,6 +7,7 @@ import HostMenu from "./HostMenu";
 import UserMenu from "./UserMenus";
 
 const Menubar = ({ role }) => {
+  console.log(role);
   const { logout } = useContext(AuthContext);
   return (
     <div>
