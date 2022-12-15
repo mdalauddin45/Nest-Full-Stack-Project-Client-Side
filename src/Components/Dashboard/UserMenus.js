@@ -25,7 +25,7 @@ const UserMenu = () => {
       </NavLink>
 
       <NavLink
-        to="become-host"
+        to="/account/orders"
         className={({ isActive }) =>
           `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
@@ -37,7 +37,7 @@ const UserMenu = () => {
         <span className="mx-4 font-medium">Orders</span>
       </NavLink>
       <NavLink
-        to="become-host"
+        to="/account/trackorders"
         className={({ isActive }) =>
           `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
@@ -49,7 +49,7 @@ const UserMenu = () => {
         <span className="mx-4 font-medium">Track Your Orders</span>
       </NavLink>
       <NavLink
-        to="become-host"
+        to="/account/address"
         className={({ isActive }) =>
           `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
@@ -61,7 +61,7 @@ const UserMenu = () => {
         <span className="mx-4 font-medium">My Address</span>
       </NavLink>
       <NavLink
-        to="become-host"
+        to="/account/accountdetails"
         className={({ isActive }) =>
           `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
