@@ -1,34 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import Menubar from "../components/Dashboard/Menubar";
 import { AuthContext } from "../contexts/AuthProvider";
-import { Outlet } from "react-router-dom";
-import Sidebar from "../Components/Dashboard/Sidebar";
-import { getRole } from "../api/User";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
-  const [role, setRole] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(true);
-    getRole(user?.email).then((data) => {
-      setRole(data);
-      setLoading(false);
-    });
-  }, [user]);
+  // const [role, setRole] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getRole(user?.email).then((data) => {
+  //     setRole(data);
+  //     setLoading(false);
+  //   });
+  // }, [user]);
   return (
-    <div className="relative min-h-screen md:flex">
-      {loading ? (
-        ""
-      ) : (
-        <>
-          <Sidebar role={role} />
-          <div className="flex-1  md:ml-64">
-            <div className="p-5">
-              <Outlet />
-            </div>
-          </div>
-        </>
-      )}
+    <div className="relative min-h-screen md:flex lg:flex justify-between">
+      <Menubar></Menubar>
+      <div>
+        <h1>Menubar</h1>
+      </div>
     </div>
   );
 };
