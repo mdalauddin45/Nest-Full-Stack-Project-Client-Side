@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../Components/Dashboard/Sidebar";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
