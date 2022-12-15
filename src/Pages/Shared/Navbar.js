@@ -7,6 +7,8 @@ import {
   UserIcon,
 } from "@heroicons/react/24/solid";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <div>
@@ -68,10 +70,10 @@ const Navbar = () => {
               </h1>
             </li>
             <li className="hidden lg:flex">
-              <h1>
+              <Link to="/account">
                 <UserIcon className="h-6 w-6" />
                 <p className="hidden lg:flex">Account</p>
-              </h1>
+              </Link>
             </li>
           </ul>
         </div>
