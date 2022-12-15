@@ -21,12 +21,11 @@ const Menubar = ({ role }) => {
       </div>
 
       <div>
-        <hr />
         <PrimaryButton
           handler={logout}
-          classes="flex block w-full  items-center px-4 py-2 mt-5 "
+          classes="flex block w-full  items-center px-6 py-4 border rounded-lg mt-5 text-xl font-bold"
         >
-          <ArrowRightOnRectangleIcon className="w-5 h-5" />
+          <ArrowRightOnRectangleIcon className="w-6 h-6" />
 
           <span className="mx-4 font-medium">Logout</span>
         </PrimaryButton>

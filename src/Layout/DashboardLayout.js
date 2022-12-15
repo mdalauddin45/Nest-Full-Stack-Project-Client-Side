@@ -16,9 +16,9 @@ const DashboardLayout = () => {
     });
   }, [user]);
   return (
-    <div className="relative min-h-screen md:flex lg:flex justify-between lg:px-32 lg:py-20">
+    <div className="relative min-h-screen md:flex lg:flex justify-between lg:px-32 lg:py-20 px-10 py-5">
       <Menubar role={role}></Menubar>
-      <div>
+      <div className="lg:my-10">
         <Outlet />
       </div>
     </div>

@@ -10,12 +10,12 @@ import { NavLink } from "react-router-dom";
 
 const UserMenu = () => {
   return (
-    <>
+    <div className="text-xl">
       <NavLink
         to="/account/dashboard"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center mt-5   transition-colors duration-300  px-6 py-4 border rounded-lg transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
@@ -27,52 +27,52 @@ const UserMenu = () => {
       <NavLink
         to="/account/orders"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
-        <ShoppingBagIcon className="w-5 h-5" />
+        <ShoppingBagIcon className="w-6 h-6" />
 
         <span className="mx-4 font-medium">Orders</span>
       </NavLink>
       <NavLink
         to="/account/trackorders"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
-        <ShoppingCartIcon className="w-5 h-5" />
+        <ShoppingCartIcon className="w-6 h-6" />
 
         <span className="mx-4 font-medium">Track Your Orders</span>
       </NavLink>
       <NavLink
         to="/account/address"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
-        <MapPinIcon className="w-5 h-5" />
+        <MapPinIcon className="w-6 h-6" />
 
         <span className="mx-4 font-medium">My Address</span>
       </NavLink>
       <NavLink
         to="/account/accountdetails"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform   hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
-        <UserIcon className="w-5 h-5" />
+        <UserIcon className="w-6 h-6" />
 
         <span className="mx-4 font-medium">Account Details</span>
       </NavLink>
-    </>
+    </div>
   );
 };
 
