@@ -35,12 +35,29 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Home</a>
+              <li className="flex">
+                <h1>
+                  <ArrowPathIcon className="h-6 w-6" />
+                  <p className="flex">Compare</p>
+                </h1>
               </li>
-
               <li>
-                <a>Shop</a>
+                <h1>
+                  <HeartIcon className="h-6 w-6" />
+                  <p className="flex">Wishlist</p>
+                </h1>
+              </li>
+              <li>
+                <h1>
+                  <ShoppingCartIcon className="h-6 w-6" />
+                  <p className="flex">Cart</p>
+                </h1>
+              </li>
+              <li>
+                <Link to="/account">
+                  <UserIcon className="h-6 w-6" />
+                  <p className="flex">Account</p>
+                </Link>
               </li>
             </ul>
           </div>
