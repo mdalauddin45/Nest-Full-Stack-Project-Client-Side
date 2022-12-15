@@ -4,7 +4,6 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
-import PrimaryButton from "../Button/PrimaryButton";
 import { AuthContext } from "../../contexts/AuthProvider";
 import UserMenu from "./UserMenu";
 import AdminMenu from "./AdminMenu";
@@ -83,14 +82,14 @@ const Sidebar = ({ role, loading }) => {
 
         <div>
           <hr />
-          <PrimaryButton
+          <button
             handler={logout}
             classes="flex block w-full rounded-full items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform"
           >
             <ArrowRightOnRectangleIcon className="w-5 h-5" />
 
             <span className="mx-4 font-medium">Logout</span>
-          </PrimaryButton>
+          </button>
         </div>
       </div>
     </>
