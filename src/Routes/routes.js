@@ -7,6 +7,8 @@ import MyAddress from "../Pages/Accounts/UserAccounts/MyAddress";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
 import TrackOrders from "../Pages/Accounts/UserAccounts/TrackOrders";
 import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
+import Login from "../Pages/SignIn&Up/Login";
+import SignUp from "../Pages/SignIn&Up/SignUp";
 import Welcome from "../Pages/Welcome/Welcome";
 export const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ export const router = createBrowserRouter([
     element: <Main />,
     children: [
       { path: "/", element: <Home /> },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
       {
         path: "/account",
         element: <DashboardLayout />,
