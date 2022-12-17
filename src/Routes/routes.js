@@ -6,6 +6,9 @@ import AllBooking from "../Pages/Accounts/AdminAcounts/AllBooking";
 import AllReports from "../Pages/Accounts/AdminAcounts/AllReports";
 import AllUsers from "../Pages/Accounts/AdminAcounts/AllUsers";
 import Profile from "../Pages/Accounts/AdminAcounts/Profile";
+import AddProducts from "../Pages/Accounts/HostAccounts/AddProducts";
+import Shop from "../Pages/Accounts/HostAccounts/Shop";
+import UpdateProducts from "../Pages/Accounts/HostAccounts/UpdateProducts";
 import AccountDetails from "../Pages/Accounts/UserAccounts/AccountDetails";
 import MyAddress from "../Pages/Accounts/UserAccounts/MyAddress";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
@@ -15,6 +18,7 @@ import Login from "../Pages/SignIn&Up/Login";
 import SignUp from "../Pages/SignIn&Up/SignUp";
 import Welcome from "../Pages/Welcome/Welcome";
 import AdminRoute from "./AdminRoute";
+import HostRoute from "./HostRoute";
 import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
@@ -61,6 +65,30 @@ export const router = createBrowserRouter([
           {
             path: "/account/accountdetails",
             element: <AccountDetails />,
+          },
+          {
+            path: "/account/shop",
+            element: (
+              <HostRoute>
+                <Shop />
+              </HostRoute>
+            ),
+          },
+          {
+            path: "/account/addproduct",
+            element: (
+              <HostRoute>
+                <AddProducts />
+              </HostRoute>
+            ),
+          },
+          {
+            path: "/account/updateproduct",
+            element: (
+              <HostRoute>
+                <UpdateProducts />
+              </HostRoute>
+            ),
           },
           {
             path: "/account/profile",

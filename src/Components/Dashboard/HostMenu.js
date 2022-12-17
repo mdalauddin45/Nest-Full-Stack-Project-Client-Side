@@ -37,7 +37,7 @@ const HostMenu = () => {
         <span className="mx-4 font-medium">Add Products</span>
       </NavLink>
       <NavLink
-        to="/account/udateproduct"
+        to="/account/updateproduct"
         className={({ isActive }) =>
           `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"

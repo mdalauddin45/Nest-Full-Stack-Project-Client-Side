@@ -1,4 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { getRole } from "../api/User";
+import Spinner from "../components/Spinner/Spinner";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const HostRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
