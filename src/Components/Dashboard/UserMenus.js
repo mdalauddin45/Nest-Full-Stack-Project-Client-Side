@@ -14,7 +14,7 @@ const UserMenu = () => {
       <NavLink
         to="/account/dashboard"
         className={({ isActive }) =>
-          `flex items-center mt-5   transition-colors duration-300  px-6 py-4 border rounded-lg transform  hover:bg-[#3BB77E]   hover:text-white ${
+          `flex items-center mt-5   transition-colors duration-300  pl-6 py-4 border rounded-lg transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
@@ -27,7 +27,7 @@ const UserMenu = () => {
       <NavLink
         to="/account/orders"
         className={({ isActive }) =>
-          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+          `flex items-center pl-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
@@ -39,7 +39,7 @@ const UserMenu = () => {
       <NavLink
         to="/account/trackorders"
         className={({ isActive }) =>
-          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+          `flex items-center pl-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
@@ -51,7 +51,7 @@ const UserMenu = () => {
       <NavLink
         to="/account/address"
         className={({ isActive }) =>
-          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+          `flex items-center pl-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
@@ -63,7 +63,7 @@ const UserMenu = () => {
       <NavLink
         to="/account/accountdetails"
         className={({ isActive }) =>
-          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform   hover:bg-[#3BB77E]   hover:text-white ${
+          `flex items-center pl-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform   hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }

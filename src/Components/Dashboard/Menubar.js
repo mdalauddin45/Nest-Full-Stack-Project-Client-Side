@@ -24,7 +24,7 @@ const Menubar = ({ role }) => {
       <div>
         <PrimaryButton
           handler={logout}
-          classes="flex block w-full  items-center px-6 py-4 border rounded-lg mt-5 text-xl font-bold"
+          classes="flex block w-full  items-center pl-6 py-4 border rounded-lg mt-5 text-xl font-bold"
         >
           <ArrowRightOnRectangleIcon className="w-6 h-6" />
 
