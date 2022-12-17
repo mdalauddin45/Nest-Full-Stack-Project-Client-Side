@@ -1,4 +1,9 @@
-import { FingerPrintIcon, UserPlusIcon } from "@heroicons/react/24/solid";
+import {
+  ExclamationTriangleIcon,
+  HomeIcon,
+  ShoppingBagIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/solid";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -6,29 +11,52 @@ const AdminMenu = () => {
   return (
     <>
       <NavLink
-        to="all-users"
+        to="/account/address"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
-        <FingerPrintIcon className="w-5 h-5" />
+        <HomeIcon className="w-6 h-6" />
+
+        <span className="mx-4 font-medium">Profile</span>
+      </NavLink>
+      <NavLink
+        to="/account/address"
+        className={({ isActive }) =>
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
+          }`
+        }
+      >
+        <UserGroupIcon className="w-6 h-6" />
 
         <span className="mx-4 font-medium">All Users</span>
       </NavLink>
-
       <NavLink
-        to="all-bookings"
+        to="/account/address"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-            isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }
       >
-        <UserPlusIcon className="w-5 h-5" />
+        <ShoppingBagIcon className="w-6 h-6" />
 
-        <span className="mx-4 font-medium">All Bookings</span>
+        <span className="mx-4 font-medium">All Booking</span>
+      </NavLink>
+      <NavLink
+        to="/account/address"
+        className={({ isActive }) =>
+          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
+          }`
+        }
+      >
+        <ExclamationTriangleIcon className="w-6 h-6" />
+
+        <span className="mx-4 font-medium">All Reports</span>
       </NavLink>
     </>
   );
