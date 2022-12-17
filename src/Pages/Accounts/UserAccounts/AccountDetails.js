@@ -3,7 +3,7 @@ import React from "react";
 const AccountDetails = () => {
   return (
     <div>
-      <h1>this is AccountDetails</h1>
+      <h1 className="text-3xl font-bold">Account Details</h1>
     </div>
   );
 };
