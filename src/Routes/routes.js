@@ -2,6 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home/Home";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import AllBooking from "../Pages/Accounts/AdminAcounts/AllBooking";
+import AllReports from "../Pages/Accounts/AdminAcounts/AllReports";
+import AllUsers from "../Pages/Accounts/AdminAcounts/AllUsers";
+import Profile from "../Pages/Accounts/AdminAcounts/Profile";
 import AccountDetails from "../Pages/Accounts/UserAccounts/AccountDetails";
 import MyAddress from "../Pages/Accounts/UserAccounts/MyAddress";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
@@ -10,6 +14,7 @@ import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
 import Login from "../Pages/SignIn&Up/Login";
 import SignUp from "../Pages/SignIn&Up/SignUp";
 import Welcome from "../Pages/Welcome/Welcome";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
@@ -56,6 +61,26 @@ export const router = createBrowserRouter([
           {
             path: "/account/accountdetails",
             element: <AccountDetails />,
+          },
+          {
+            path: "/account/profile",
+            element: (
+              <AdminRoute>
+                <Profile />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/account/users",
+            element: <AllUsers />,
+          },
+          {
+            path: "/account/booking",
+            element: <AllBooking />,
+          },
+          {
+            path: "/account/reports",
+            element: <AllReports />,
           },
         ],
       },

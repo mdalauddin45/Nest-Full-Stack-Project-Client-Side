@@ -11,7 +11,7 @@ const AdminMenu = () => {
   return (
     <>
       <NavLink
-        to="/account/address"
+        to="/account/profile"
         className={({ isActive }) =>
           `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
@@ -23,7 +23,7 @@ const AdminMenu = () => {
         <span className="mx-4 font-medium">Profile</span>
       </NavLink>
       <NavLink
-        to="/account/address"
+        to="/account/users"
         className={({ isActive }) =>
           `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
@@ -35,7 +35,7 @@ const AdminMenu = () => {
         <span className="mx-4 font-medium">All Users</span>
       </NavLink>
       <NavLink
-        to="/account/address"
+        to="/account/booking"
         className={({ isActive }) =>
           `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
@@ -47,7 +47,7 @@ const AdminMenu = () => {
         <span className="mx-4 font-medium">All Booking</span>
       </NavLink>
       <NavLink
-        to="/account/address"
+        to="/account/reports"
         className={({ isActive }) =>
           `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
