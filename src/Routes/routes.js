@@ -72,15 +72,27 @@ export const router = createBrowserRouter([
           },
           {
             path: "/account/users",
-            element: <AllUsers />,
+            element: (
+              <AdminRoute>
+                <AllUsers />
+              </AdminRoute>
+            ),
           },
           {
             path: "/account/booking",
-            element: <AllBooking />,
+            element: (
+              <AdminRoute>
+                <AllBooking />
+              </AdminRoute>
+            ),
           },
           {
             path: "/account/reports",
-            element: <AllReports />,
+            element: (
+              <AdminRoute>
+                <AllReports />
+              </AdminRoute>
+            ),
           },
         ],
       },
