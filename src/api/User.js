@@ -27,19 +27,19 @@ export const getRole = async (email) => {
   return user?.role;
 };
 
-// sealer and buyer
-export const getAllUsers = async () => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
-    method: "GET",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
-    },
-  });
-  const users = await response.json();
-  console.log(users);
-  return users;
-};
+// // sealer and buyer
+// export const getAllUsers = async () => {
+//   const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
+//     method: "GET",
+//     headers: {
+//       "content-type": "application/json",
+//       authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+//     },
+//   });
+//   const users = await response.json();
+//   console.log(users);
+//   return users;
+// };
 
 export const makeHost = async (user) => {
   delete user._id;
