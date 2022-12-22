@@ -55,3 +55,16 @@ export const makeHost = async (user) => {
 
   return users;
 };
+// Delete a User
+export const deleteUser = async (id) => {
+  const response = await fetch(`http://localhost:5000/users/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+
+  const data = await response.json();
+  return data;
+};

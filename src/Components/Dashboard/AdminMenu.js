@@ -23,7 +23,7 @@ const AdminMenu = () => {
         <span className="mx-4 font-medium">Profile</span>
       </NavLink>
       <NavLink
-        to="/account/users"
+        to="/account/seller"
         className={({ isActive }) =>
           `flex items-center pl-6 py-4 border rounded-lg mt-5 mx-0   transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
@@ -32,7 +32,19 @@ const AdminMenu = () => {
       >
         <UserGroupIcon className="w-6 h-6" />
 
-        <span className="px-4 font-medium">All Users</span>
+        <span className="px-4 font-medium">All Seller</span>
+      </NavLink>
+      <NavLink
+        to="/account/buyer"
+        className={({ isActive }) =>
+          `flex items-center pl-6 py-4 border rounded-lg mt-5 mx-0   transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+            isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
+          }`
+        }
+      >
+        <UserGroupIcon className="w-6 h-6" />
+
+        <span className="px-4 font-medium">All Buyer</span>
       </NavLink>
       <NavLink
         to="/account/booking"

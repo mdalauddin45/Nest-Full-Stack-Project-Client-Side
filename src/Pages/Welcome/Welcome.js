@@ -14,7 +14,7 @@ const Welcome = () => {
   }, [user]);
   console.log(role);
   return (
-    <div className=" text-gray-700 flex flex-col justify-center items-center py-32 pr-32">
+    <div className=" text-gray-700 flex flex-col justify-center items-center py-32  px-32">
       <div className="flex justify-center items-center">
         <p className="text-6xl font-bold">Welc</p>
         <div className="w-9 h-9 border-8 border-dashed rounded-full animate-spin mt-3 border-green-400"></div>

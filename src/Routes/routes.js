@@ -3,6 +3,7 @@ import Home from "../Home/Home";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AllBooking from "../Pages/Accounts/AdminAcounts/AllBooking";
+import AllBuyer from "../Pages/Accounts/AdminAcounts/AllBuyer";
 import AllReports from "../Pages/Accounts/AdminAcounts/AllReports";
 import AllUsers from "../Pages/Accounts/AdminAcounts/AllUsers";
 import Profile from "../Pages/Accounts/AdminAcounts/Profile";
@@ -99,10 +100,18 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: "/account/users",
+            path: "/account/seller",
             element: (
               <AdminRoute>
                 <AllUsers />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/account/buyer",
+            element: (
+              <AdminRoute>
+                <AllBuyer />
               </AdminRoute>
             ),
           },

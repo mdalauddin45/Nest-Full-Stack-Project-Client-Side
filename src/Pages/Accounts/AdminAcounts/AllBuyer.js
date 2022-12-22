@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { deleteUser } from "../../../api/User";
 
-const AllUsers = () => {
+const AllBuyer = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
 
@@ -13,7 +12,7 @@ const AllUsers = () => {
       .then((data) => setUsers(data));
   }, [loading]);
   // console.log(users);
-  const sellers = users.filter((x) => x.role === "host");
+  const sellers = users.filter((x) => x.role === "user");
   // console.log(sellers);
   const handleDelet = (id) => {
     if (id) {
@@ -105,4 +104,4 @@ const AllUsers = () => {
   );
 };
 
-export default AllUsers;
+export default AllBuyer;
