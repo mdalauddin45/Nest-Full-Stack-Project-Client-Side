@@ -17,14 +17,14 @@ const AddProductForm = ({
             className="space-y-6 ng-untouched ng-pristine ng-valid"
           >
             <div className="space-y-1 text-sm">
-              <label htmlFor="name" className="block text-gray-600">
+              <label htmlFor="product" className="block text-gray-600">
                 Name of Product
               </label>
 
               <input
                 className="w-full px-4 py-5 border rounded-md border-gray-300 focus:outline-green-500  text-gray-900"
-                name="name"
-                id="name"
+                name="product"
+                id="product"
                 type="text"
                 placeholder="Enter Your Product Name"
                 required
@@ -33,13 +33,13 @@ const AddProductForm = ({
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
-                <label htmlFor="Orginal_Price" className="block text-gray-600">
+                <label htmlFor="price" className="block text-gray-600">
                   Price
                 </label>
                 <input
                   className="w-full px-4 py-5 border rounded-md border-gray-300 focus:outline-green-500  text-gray-900"
-                  name="oprice"
-                  id="Orginal_Price"
+                  name="price"
+                  id="price"
                   type="number"
                   placeholder="Price"
                   required
@@ -47,13 +47,13 @@ const AddProductForm = ({
               </div>
 
               <div className="space-y-1 text-sm">
-                <label htmlFor="Resale_Price" className="block text-gray-600">
+                <label htmlFor="shopname" className="block text-gray-600">
                   Shop Name
                 </label>
                 <input
                   className="w-full px-4 py-5 border rounded-md border-gray-300 focus:outline-green-500  text-gray-900"
-                  name="rprice"
-                  id="Resale_Price"
+                  name="shopname"
+                  id="shopname"
                   type="text"
                   placeholder="Enter Your Shop Name"
                   required

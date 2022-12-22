@@ -17,38 +17,22 @@ const AddProducts = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const originalprice = form.oprice.value;
-    const resaleprice = form.rprice.value;
-    const used = form.years.value;
-    const number = form.number.value;
-    const location = form.location.value;
+    const product = form.product.value;
+    const price = form.price.value;
+    const shopName = form.shopname.value;
+    const rating = form.rating.value;
     const category = form.category.value;
-    const condition = form.condition.value;
     const description = form.description.value;
     const image = event.target.image.files[0];
-    // console.log(
-    //   name,
-    //   originalprice,
-    //   resaleprice,
-    //   used,
-    //   category,
-    //   number,
-    //   location,
-    //   image,
-    //   condition,
-    //   description
-    // );
+    // console.log(product, price, shopName, rating, category, image, description);
     setLoading(true);
     imageUpload(image)
       .then((res) => {
         const categoriData = {
-          name,
-          location,
-          originalprice,
-          resaleprice,
-          used,
-          number,
+          product,
+          price,
+          shopName,
+          rating,
           category,
           image: res.data.display_url,
           email: user?.email,
@@ -57,15 +41,14 @@ const AddProducts = () => {
             image: user?.photoURL,
             email: user?.email,
           },
-          // published: date,
-          condition,
           description,
         };
+        // console.log(categoriData);
         addProduct(categoriData).then((data) => {
           console.log(data);
           setLoading(false);
-          toast.success(" Added Successfuly !");
-          navigate("/dashboard/manage-products");
+          toast.success("Added Successfuly !");
+          navigate("/account/shop");
         });
       })
       .catch((err) => {

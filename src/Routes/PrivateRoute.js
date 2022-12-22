@@ -6,7 +6,7 @@ import { AuthContext } from "../contexts/AuthProvider";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  console.log(loading);
+  // console.log(loading);
   if (loading) {
     return (
       <div className="h-screen">

@@ -16,7 +16,7 @@ export const imageUpload = async (image) => {
 
 // Add a Category
 export const addProduct = async (categoriData) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
+  const response = await fetch(`http://localhost:5000/products`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -29,65 +29,65 @@ export const addProduct = async (categoriData) => {
   return data;
 };
 
-//get all products
-export const getAllProduct = async () => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
-  const data = await response.json();
-  return data;
-};
+// //get all products
+// export const getAllProduct = async () => {
+//   const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
+//   const data = await response.json();
+//   return data;
+// };
 
-//get filtered products for seller
-export const getProducts = async (email) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/products/${email}`,
-    {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
-      },
-    }
-  );
-  const data = await response.json();
-  return data;
-};
+// //get filtered products for seller
+// export const getProducts = async (email) => {
+//   const response = await fetch(
+//     `${process.env.REACT_APP_API_URL}/products/${email}`,
+//     {
+//       method: "GET",
+//       headers: {
+//         "content-type": "application/json",
+//         authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+//       },
+//     }
+//   );
+//   const data = await response.json();
+//   return data;
+// };
 
-// update a Product
-export const updateProduct = async (categoriData) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
-    },
-    body: JSON.stringify(categoriData),
-  });
+// // update a Product
+// export const updateProduct = async (categoriData) => {
+//   const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
+//     method: "PUT",
+//     headers: {
+//       "content-type": "application/json",
+//       authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+//     },
+//     body: JSON.stringify(categoriData),
+//   });
 
-  const data = await response.json();
-  return data;
-};
+//   const data = await response.json();
+//   return data;
+// };
 
-// Delete a Products
-export const deleteproduct = async (id) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/product/${id}`,
-    {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
-      },
-    }
-  );
-  const result = await response.json();
-  return result;
-};
+// // Delete a Products
+// export const deleteproduct = async (id) => {
+//   const response = await fetch(
+//     `${process.env.REACT_APP_API_URL}/product/${id}`,
+//     {
+//       method: "DELETE",
+//       headers: {
+//         "content-type": "application/json",
+//         authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+//       },
+//     }
+//   );
+//   const result = await response.json();
+//   return result;
+// };
 
-// Search Result
-export const getCategory = async (category) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/category?category=${category}`
-  );
-  const data = await response.json();
-  return data;
-};
+// // Search Result
+// export const getCategory = async (category) => {
+//   const response = await fetch(
+//     `${process.env.REACT_APP_API_URL}/category?category=${category}`
+//   );
+//   const data = await response.json();
+//   return data;
+// };

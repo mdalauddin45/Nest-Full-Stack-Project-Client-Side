@@ -3,7 +3,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const HostProfile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  //   console.log(user);
   return (
     <div>
       <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 text-gray-900">
