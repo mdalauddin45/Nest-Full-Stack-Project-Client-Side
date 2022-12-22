@@ -17,7 +17,7 @@ const AddProducts = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const product = form.product.value;
+    const name = form.product.value;
     const price = form.price.value;
     const shopName = form.shopname.value;
     const rating = form.rating.value;
@@ -29,7 +29,7 @@ const AddProducts = () => {
     imageUpload(image)
       .then((res) => {
         const categoriData = {
-          product,
+          name,
           price,
           shopName,
           rating,

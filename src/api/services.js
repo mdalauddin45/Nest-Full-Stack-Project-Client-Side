@@ -20,7 +20,7 @@ export const getAllProduct = async () => {
   return data;
 };
 
-//get filtered products for hosts
+//get filtered products for seller
 export const getProducts = async (email) => {
   const response = await fetch(`http://localhost:5000/products/${email}`, {
     method: "GET",
@@ -50,7 +50,7 @@ export const updateProduct = async (productData) => {
 
 // Delete a home
 export const deleteproduct = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/home/${id}`, {
+  const response = await fetch(`http://localhost:5000/product/${id}`, {
     method: "DELETE",
     headers: {
       "content-type": "application/json",

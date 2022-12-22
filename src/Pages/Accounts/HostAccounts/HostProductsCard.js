@@ -1,9 +1,18 @@
-import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/solid";
+import { StarIcon, TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import { toast } from "react-hot-toast";
+import { deleteproduct } from "../../../api/services";
 
-const Product = ({ product }) => {
-  const { name, image, price, category, shop, rating } = product;
-
+const HostProductsCard = ({ product, loading, setLoading }) => {
+  const { name, image, price, category, shop, rating, _id } = product;
+  //   console.log(product);
+  const handleDelet = (id) => {
+    if (id) {
+      deleteproduct(id);
+      toast.success("delete Product Succussfuly");
+      setLoading(!loading);
+    }
+  };
   return (
     <div className="card lg:w-68 md:w-68 w-68  shadow hover:shadow-[#3BB77E]">
       <figure>
@@ -25,12 +34,15 @@ const Product = ({ product }) => {
         <h1 className="flex">
           By <p className="text-[#3BB77E] ml-1">{shop}</p>
         </h1>
-        <div className="flex justify-between pb-6">
+        <div
+          onClick={() => handleDelet(_id)}
+          className="flex justify-between pb-6"
+        >
           <button className="text-xl font-semibold text-[#3BB77E]">
             ${price}
           </button>
-          <button className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] font-bold">
-            <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add
+          <button className=" px-3 py-2 bg-[#fde0e9] text-[#f74b81] rounded flex  font-bold">
+            <TrashIcon className="h-6 w-6 mx-2 " /> Delete
           </button>
         </div>
       </div>
@@ -38,4 +50,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default HostProductsCard;
