@@ -12,23 +12,23 @@ const AllBuyer = () => {
       .then((data) => setUsers(data));
   }, [loading]);
   // console.log(users);
-  const sellers = users.filter((x) => x.role === "user");
-  // console.log(sellers);
+  const Buyers = users.filter((x) => x.role === users.role);
+  // console.log(Buyers);
   const handleDelet = (id) => {
     if (id) {
       deleteUser(id);
-      toast.success("delet user Succussfuly");
+      toast.success("delet Buyer Succussfuly");
       setLoading(!loading);
     }
   };
   return (
     <>
-      {sellers && Array.isArray(sellers) && sellers.length > 0 ? (
+      {Buyers && Array.isArray(Buyers) && Buyers.length > 0 ? (
         <>
           <div className="container mx-auto px-10 py-5 sm:px-8 ">
             <div className="text-center">
               <h1 className="text-3xl text-black font-bold">
-                All Seller Information
+                All Buyers Information
               </h1>
             </div>
             <div className="py-8 lg:px-10 md:px-10">
@@ -58,8 +58,8 @@ const AllBuyer = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {sellers &&
-                        sellers.map((user, i) => (
+                      {Buyers &&
+                        Buyers.map((user, i) => (
                           <tr key={i}>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                               <p className="text-gray-900 whitespace-no-wrap">
