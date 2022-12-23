@@ -16,6 +16,7 @@ import Orders from "../Pages/Accounts/UserAccounts/Orders";
 import TrackOrders from "../Pages/Accounts/UserAccounts/TrackOrders";
 import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
 import AllProducts from "../Pages/Products/AllProducts";
+import ProductDetails from "../Pages/Products/ProductDetails";
 import Login from "../Pages/SignIn&Up/Login";
 import SignUp from "../Pages/SignIn&Up/SignUp";
 import Welcome from "../Pages/Welcome/Welcome";
@@ -39,6 +40,12 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllProducts />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "/account",

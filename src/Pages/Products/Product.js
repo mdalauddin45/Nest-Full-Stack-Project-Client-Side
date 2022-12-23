@@ -1,8 +1,9 @@
 import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { name, image, price, category, shop, rating } = product;
+  const { name, image, price, category, shop, rating, _id } = product;
 
   return (
     <div className="card lg:w-68 md:w-68 w-68 h-96  shadow hover:shadow-[#3BB77E]">
@@ -11,9 +12,12 @@ const Product = ({ product }) => {
       </figure>
       <div className="px-3 ">
         <h1 className="text-[12px]">{category}</h1>
-        <h2 className="card-title text-[16px] text-[#253D4E]">
+        <Link
+          to={`/product/${_id}`}
+          className="card-title text-[16px] text-[#253D4E]"
+        >
           {name?.split(0, 15) + "..."}
-        </h2>
+        </Link>
         <div className="flex text-yellow-400 text-sm">
           <StarIcon className="h-4 w-4" />
           <StarIcon className="h-4 w-4" />
