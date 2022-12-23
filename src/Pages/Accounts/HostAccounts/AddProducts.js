@@ -45,7 +45,7 @@ const AddProducts = () => {
         };
         // console.log(categoriData);
         addProduct(categoriData).then((data) => {
-          console.log(data);
+          // console.log(data);
           setLoading(false);
           toast.success("Added Successfuly !");
           navigate("/account/shop");

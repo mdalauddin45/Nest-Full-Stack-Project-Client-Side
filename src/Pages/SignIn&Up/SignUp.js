@@ -45,13 +45,13 @@ const SignUp = () => {
           image: imageData.data.display_url,
           role,
         };
-        console.log(userData);
+        // console.log(userData);
 
         // Create User
         createUser(email, password)
           .then((result) => {
             setAuthToken(result.user);
-            console.log(result.user);
+            // console.log(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
                 if (userData.role === "host") {
@@ -76,7 +76,7 @@ const SignUp = () => {
 
   const handleGoogleSignin = () => {
     signInWithGoogle().then((result) => {
-      console.log(result.user);
+      // console.log(result.user);
       setAuthToken(result.user);
       setLoading(false);
       navigate(from, { replace: true });

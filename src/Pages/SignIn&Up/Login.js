@@ -37,7 +37,7 @@ const Login = () => {
 
   const handleGoogleSignin = () => {
     signInWithGoogle().then((result) => {
-      console.log(result.user);
+      // console.log(result.user);
       setAuthToken(result.user);
       setLoading(false);
       navigate(from, { replace: true });

@@ -12,7 +12,7 @@ const Welcome = () => {
       setLoading(false);
     });
   }, [user]);
-  console.log(role);
+  // console.log(role);
   return (
     <div className=" text-gray-700 flex flex-col justify-center items-center py-32  px-32">
       <div className="flex justify-center items-center">

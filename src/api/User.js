@@ -11,7 +11,7 @@ export const hostRequest = async (user) => {
     }
   );
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data;
 };
 

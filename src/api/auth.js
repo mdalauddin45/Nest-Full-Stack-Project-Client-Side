@@ -1,5 +1,5 @@
 export const setAuthToken = (user) => {
-  console.log(user);
+  // console.log(user);
   const currentUser = {
     email: user.email,
   };
@@ -14,7 +14,7 @@ export const setAuthToken = (user) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       //Save token in LocalStorage
       localStorage.setItem("nest-token", data.token);
     });
