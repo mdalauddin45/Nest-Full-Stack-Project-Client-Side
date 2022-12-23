@@ -19,7 +19,7 @@ const AddProducts = () => {
     const form = event.target;
     const name = form.product.value;
     const price = form.price.value;
-    const shopName = form.shopname.value;
+    const shop = form.shopname.value;
     const rating = form.rating.value;
     const category = form.category.value;
     const description = form.description.value;
@@ -31,7 +31,7 @@ const AddProducts = () => {
         const categoriData = {
           name,
           price,
-          shopName,
+          shop,
           rating,
           category,
           image: res.data.display_url,
