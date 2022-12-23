@@ -15,6 +15,7 @@ import MyAddress from "../Pages/Accounts/UserAccounts/MyAddress";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
 import TrackOrders from "../Pages/Accounts/UserAccounts/TrackOrders";
 import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
+import AllProducts from "../Pages/Products/AllProducts";
 import Login from "../Pages/SignIn&Up/Login";
 import SignUp from "../Pages/SignIn&Up/SignUp";
 import Welcome from "../Pages/Welcome/Welcome";
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/products",
+        element: <AllProducts />,
       },
       {
         path: "/account",
