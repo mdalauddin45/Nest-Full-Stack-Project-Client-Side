@@ -21,7 +21,7 @@ const HostProducts = () => {
   return (
     <div>
       {products && Array.isArray(products) && products.length > 0 ? (
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2  lg:grid-cols-2 py-10">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 py-10">
           {products?.map((product) => (
             <HostProductsCard
               product={product}
