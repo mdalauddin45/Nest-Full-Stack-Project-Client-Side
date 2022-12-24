@@ -148,6 +148,7 @@ const SignUp = () => {
                   id="user"
                   className="radio radio-success mr-2"
                   onChange={() => setRole("user")}
+                  required
                 />
                 I am a customer
               </div>
@@ -158,6 +159,7 @@ const SignUp = () => {
                   id="host"
                   className="radio radio-success mr-2"
                   onChange={() => setRole("host")}
+                  required
                 />
                 I am a vendor
               </div>

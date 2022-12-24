@@ -7,7 +7,7 @@ import {
   UserIcon,
 } from "@heroicons/react/24/solid";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -35,35 +35,46 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li className="flex">
-                <h1>
-                  <ArrowPathIcon className="h-6 w-6" />
-                  <p className="flex">Compare</p>
+              <Link
+                to="/"
+                className="hover:text-white py-2 rounded-lg hover:bg-[#3BB77E]"
+              >
+                <h1 className="flex pl-4">
+                  <ArrowPathIcon className="h-6 w-6 mr-3" />
+                  <p>Compare</p>
                 </h1>
-              </li>
-              <li>
-                <h1>
-                  <HeartIcon className="h-6 w-6" />
-                  <p className="flex">Wishlist</p>
+              </Link>
+              <Link
+                to="/wishlist"
+                className="hover:text-white py-2 rounded-lg hover:bg-[#3BB77E]"
+              >
+                <h1 className="flex pl-4">
+                  <HeartIcon className="h-6 w-6 mr-3" />
+                  <p>Wishlist</p>
                 </h1>
-              </li>
-              <li>
-                <h1>
-                  <ShoppingCartIcon className="h-6 w-6" />
-                  <p className="flex">Cart</p>
+              </Link>
+              <Link
+                to="/shop-cart"
+                className="hover:text-white py-2 rounded-lg hover:bg-[#3BB77E]"
+              >
+                <h1 className="flex pl-4">
+                  <ShoppingCartIcon className="h-6 w-6 mr-3" />
+                  <p>Cart</p>
                 </h1>
-              </li>
-              <li>
-                <Link to="/account">
-                  <UserIcon className="h-6 w-6" />
-                  <p className="flex">Account</p>
-                </Link>
-              </li>
+              </Link>
+              <Link
+                to="/account"
+                className="hover:text-white py-2 rounded-lg hover:bg-[#3BB77E]"
+              >
+                <h1 className="flex pl-4">
+                  <UserIcon className="h-6 w-6 mr-3" />
+                  <p>Account</p>
+                </h1>
+              </Link>
             </ul>
           </div>
           <div>
             <Link to="/">
-              {" "}
               <img className="h-12" src={logo} alt="..." />
             </Link>
           </div>
@@ -83,18 +94,32 @@ const Navbar = () => {
                 <p className="hidden lg:flex">Wishlist</p>
               </h1>
             </li>
-            <li>
-              <h1>
+            <NavLink
+              to="/shop-cart"
+              className={({ isActive }) =>
+                `flex items-center px-5 py-2 hover:border rounded-lg   transition-colors duration-300 transform  hover:bg-[#3BB77E]  hover:text-white ${
+                  isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
+                }`
+              }
+            >
+              <h1 className="flex">
                 <ShoppingCartIcon className="h-6 w-6" />
                 <p className="hidden lg:flex">Cart</p>
               </h1>
-            </li>
-            <li className="hidden lg:flex">
-              <Link to="/account">
+            </NavLink>
+            <NavLink
+              to="/account"
+              className={({ isActive }) =>
+                `hidden lg:flex  items-center px-5 py-2 hover:border rounded-lg   transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+                  isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
+                }`
+              }
+            >
+              <h1 className="flex">
                 <UserIcon className="h-6 w-6" />
                 <p className="hidden lg:flex">Account</p>
-              </Link>
-            </li>
+              </h1>
+            </NavLink>
           </ul>
         </div>
       </div>

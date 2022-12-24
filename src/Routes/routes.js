@@ -12,6 +12,7 @@ import Shop from "../Pages/Accounts/HostAccounts/Shop";
 import UpdateProducts from "../Pages/Accounts/HostAccounts/UpdateProducts";
 import AccountDetails from "../Pages/Accounts/UserAccounts/AccountDetails";
 import MyAddress from "../Pages/Accounts/UserAccounts/MyAddress";
+import MyCart from "../Pages/Accounts/UserAccounts/MyCart";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
 import TrackOrders from "../Pages/Accounts/UserAccounts/TrackOrders";
 import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllProducts />,
+      },
+      {
+        path: "/shop-cart",
+        element: <MyCart />,
       },
       {
         path: "/product/:id",

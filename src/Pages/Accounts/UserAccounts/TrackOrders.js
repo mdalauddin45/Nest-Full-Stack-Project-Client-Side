@@ -7,7 +7,7 @@ const TrackOrders = () => {
   const { loading } = useContext(AuthContext);
   return (
     <div>
-      <div className="pl-10">
+      <div className="pl-10 pt-10 lg:pt-0 md:pt-0">
         <h1 className="text-3xl font-bold ">Orders tracking</h1>
         <p className="py-5 text-[#7E7E7E]">
           To track your order please enter your OrderID in the box below and
