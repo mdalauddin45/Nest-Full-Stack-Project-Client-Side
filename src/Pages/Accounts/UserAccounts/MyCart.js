@@ -3,6 +3,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/solid";
 import React from "react";
+import FooterSection from "../../Shared/FooterSection";
 
 const MyCart = () => {
   return (
@@ -103,6 +104,7 @@ const MyCart = () => {
           </div>
         </div>
       </div>
+      <FooterSection />
     </div>
   );
 };
