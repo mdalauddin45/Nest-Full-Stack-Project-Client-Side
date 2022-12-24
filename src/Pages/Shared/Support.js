@@ -1,7 +1,7 @@
 import React from "react";
 
 const Support = ({ Supporrt }) => {
-  console.log(Supporrt);
+  // console.log(Supporrt);
   const { image, title, description } = Supporrt;
   return (
     <div className="card card-side bg-[#F4F6FA] rounded-xl pl-3">
