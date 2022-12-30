@@ -3,16 +3,47 @@ import {
   ShoppingCartIcon,
   StarIcon,
 } from "@heroicons/react/24/solid";
-import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import img1 from "../../assets/Products/banner-10.png";
-import img2 from "../../assets/Products/banner-9.png";
+import React, { useContext, useState } from "react";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 import FooterSection from "../Shared/FooterSection";
 
 const ProductDetails = () => {
   const product = useLoaderData();
-  const { name, image, price, description, category, rating, shop } = product;
+  const { user } = useContext(AuthContext);
+  const { name, image, price, description, category, rating, shop, _id } =
+    product;
   console.log(product);
+  const handleWishlist = (id) => {
+    const productData = {
+      id,
+      coustomarName: user?.displayName,
+      email: user?.email,
+      name,
+      image,
+      price,
+      category,
+      shop,
+      rating,
+    };
+    // console.log(order);
+    fetch("http://localhost:5000/wishlist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("wishlist added  Succesfully");
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className=" lg:flex md:flex overflow-hidden bg-white  rounded ">
@@ -42,7 +73,10 @@ const ProductDetails = () => {
             <button className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold">
               <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
             </button>
-            <HeartIcon className="border rounded-md py-2 px-2 ml-6 mt-5  h-14 w-14 hover:bg-[#3BB77E] hover:text-white " />
+            <HeartIcon
+              onClick={() => handleWishlist(_id)}
+              className="border rounded-md py-2 px-2 ml-6 mt-5  h-14 w-14 hover:bg-[#3BB77E] hover:text-white "
+            />
           </div>
         </div>
       </div>

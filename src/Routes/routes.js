@@ -16,6 +16,7 @@ import MyCart from "../Pages/Accounts/UserAccounts/MyCart";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
 import TrackOrders from "../Pages/Accounts/UserAccounts/TrackOrders";
 import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
+import WishList from "../Pages/Accounts/UserAccounts/WishList";
 import AllProducts from "../Pages/Products/AllProducts";
 import ProductDetails from "../Pages/Products/ProductDetails";
 import Login from "../Pages/SignIn&Up/Login";
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/shop-cart",
         element: <MyCart />,
+      },
+      {
+        path: "/wishlist",
+        element: <WishList />,
       },
       {
         path: "/product/:id",

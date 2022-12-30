@@ -36,21 +36,19 @@ const MyCart = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold font-serif px-5 ">Your Cart</h1>
-      <p className="text-xl font-bold font-serif px-5">
-        {" "}
-        There are {orderItem?.length} products in your cart
-      </p>
-      <div className="lg:flex md:flex block">
+      <div className=" pt-5 pb-3">
+        <h1 className="text-2xl font-bold font-serif px-5">Your Cart</h1>
+        <p className="text-xl font-bold font-serif px-5">
+          {" "}
+          There are {orderItem?.length} products in your cart
+        </p>
+      </div>
+
+      <div className="lg:flex  block">
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
             <thead>
               <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
                 <th>Product</th>
                 <th>Unit Price</th>
                 <th>Quantity</th>
@@ -61,11 +59,6 @@ const MyCart = () => {
             <tbody>
               {orderItem?.map((order) => (
                 <tr key={order?._id} order={order}>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </th>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
@@ -76,7 +69,7 @@ const MyCart = () => {
                           />
                         </div>
                       </div>
-                      <div>
+                      <div className="w-10 lg:w-full">
                         <div className="font-bold">
                           {order?.name?.slice(0, 20)}
                         </div>
@@ -86,7 +79,7 @@ const MyCart = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="text-2xl">${order?.price}</td>
+                  <td className="text-2xl pt-10 lg:pt-0">${order?.price}</td>
                   <td>
                     <input
                       onChange={handleBlur}
@@ -96,7 +89,7 @@ const MyCart = () => {
                       id="quantity"
                     />
                   </td>
-                  <td>{order?.price * quantity}</td>
+                  <td>{order?.quantity}</td>
                   <th>
                     <button
                       onClick={() => handleDelete(order._id)}
@@ -109,7 +102,24 @@ const MyCart = () => {
               ))}
             </tbody>
           </table>
+          <div className="flex justify-between px-5 py-5">
+            <PrimaryButton
+              classes={"bg-[#3BB77E] px-5 py-3 text-white rounded "}
+            >
+              <span className="text-[16px] font-bold hover:text-white">
+                Continue Shopping
+              </span>
+            </PrimaryButton>
+            <PrimaryButton
+              classes={"bg-[#3BB77E] px-5 py-3 text-white rounded "}
+            >
+              <span className="text-[16px] font-bold hover:text-white">
+                Update Cart
+              </span>
+            </PrimaryButton>
+          </div>
         </div>
+
         <div className="flex flex-col max-w-md mx-10 lg:mt-0 md:mt-0 mt-10 p-6 space-y-4 divide-y sm:w-96 border rounded-lg  ">
           <div className="pt-4 space-y-2">
             <div className="flex justify-between">

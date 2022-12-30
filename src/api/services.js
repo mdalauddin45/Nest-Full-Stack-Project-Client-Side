@@ -71,3 +71,14 @@ export const deleteorder = async (id) => {
   const result = await response.json();
   return result;
 };
+export const deleteWishlit = async (id) => {
+  const response = await fetch(`http://localhost:5000/wishlist/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+  const result = await response.json();
+  return result;
+};

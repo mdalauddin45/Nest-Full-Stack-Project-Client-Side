@@ -17,6 +17,8 @@ const Product = ({ product }) => {
       price,
       category,
       shop,
+      rating,
+      quentity: 1,
     };
     // console.log(order);
     fetch("http://localhost:5000/orders", {

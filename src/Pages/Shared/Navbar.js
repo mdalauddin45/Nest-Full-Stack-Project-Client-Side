@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import {
   ArrowPathIcon,
   HeartIcon,
   ShoppingCartIcon,
+  TrashIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
 
 import { Link, NavLink } from "react-router-dom";
+import { deleteorder } from "../../api/services";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
+  const [orders, setOrders] = useState([]);
+  // const [wishlist, setWishlist] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:5000/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+        setLoading(!loading);
+      });
+  }, [loading]);
+  const handleDelete = (id) => {
+    // console.log(id);
+    deleteorder(id);
+    if (id) {
+      toast.success("Product Deleted Successfully");
+    }
+    setLoading(!loading);
+  };
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -88,25 +111,93 @@ const Navbar = () => {
                 <p className="hidden lg:flex">Compare</p>
               </h1>
             </li>
-            <li>
-              <h1>
-                <HeartIcon className="h-6 w-6" />
-                <p className="hidden lg:flex">Wishlist</p>
-              </h1>
-            </li>
             <NavLink
-              to="/shop-cart"
+              to="/wishlist"
               className={({ isActive }) =>
-                `flex items-center px-5 py-2 hover:border rounded-lg   transition-colors duration-300 transform  hover:bg-[#3BB77E]  hover:text-white ${
+                ` lg:flex  items-center px-2 py-2 hover:border rounded-lg   transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
                   isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
                 }`
               }
             >
               <h1 className="flex">
-                <ShoppingCartIcon className="h-6 w-6" />
-                <p className="hidden lg:flex">Cart</p>
+                <HeartIcon className="h-6 w-6" />
+                <p className="hidden lg:flex px-2">wishlist</p>
               </h1>
             </NavLink>
+
+            <div>
+              <div className="dropdown dropdown-end px-2 ">
+                <div className="flex  hover:border rounded-lg px-2    hover:bg-[#3BB77E]  hover:text-white">
+                  <label tabIndex={0} className="pt-3">
+                    <div className="indicator">
+                      <ShoppingCartIcon className="h-6 w-6 " />
+                      <span className="badge badge-sm indicator-item bg-[#3BB77E] border-none py-3">
+                        {orders?.length}
+                      </span>
+                    </div>
+                  </label>
+                  <p className="hidden lg:flex pt-3 mx-4">Cart</p>
+                </div>
+                <div
+                  tabIndex={0}
+                  className="mt-3 card card-compact dropdown-content w-[300px] bg-base-100 shadow"
+                >
+                  <div className="card-body">
+                    {orders?.map((order) => (
+                      <div
+                        order={order}
+                        key={order._id}
+                        className="flex justify-between"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="avatar">
+                            <div className=" w-20 h-20">
+                              <img
+                                src={order?.image}
+                                alt="Avatar Tailwind CSS Component"
+                              />
+                            </div>
+                          </div>
+                          <div className=" lg:w-full">
+                            <div className="font-bold">
+                              {order?.name?.slice(0, 20)}
+                            </div>
+                            <div className="text-sm opacity-50">
+                              1 X ${order?.price}
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleDelete(order._id)}
+                          className=" h-10 py-2 px-2 mt-5 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+                        >
+                          <TrashIcon className="w-6 h-6" />
+                        </button>
+                      </div>
+                    ))}
+                    <div className="card-actions flex justify-between  py-5">
+                      <Link
+                        to={"/shop-cart"}
+                        className={
+                          "bg-[#3BB77E] px-5 py-3 text-white rounded text-[16px] font-bold hover:text-white"
+                        }
+                      >
+                        View Cart
+                      </Link>
+                      <Link
+                        to="/checkout"
+                        className={
+                          "bg-[#3BB77E] px-5 py-3 text-white rounded text-[16px] font-bold hover:text-white"
+                        }
+                      >
+                        Checkout
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <NavLink
               to="/account"
               className={({ isActive }) =>
@@ -117,7 +208,7 @@ const Navbar = () => {
             >
               <h1 className="flex">
                 <UserIcon className="h-6 w-6" />
-                <p className="hidden lg:flex">Account</p>
+                <p className="hidden lg:flex px-2">Account</p>
               </h1>
             </NavLink>
           </ul>
