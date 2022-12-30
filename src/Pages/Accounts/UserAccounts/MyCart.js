@@ -2,14 +2,41 @@ import {
   ArrowRightOnRectangleIcon,
   TrashIcon,
 } from "@heroicons/react/24/solid";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
+import { deleteorder } from "../../../api/services";
 import FooterSection from "../../Shared/FooterSection";
 
 const MyCart = () => {
+  const [orderItem, setOrderItem] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:5000/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        setOrderItem(data);
+        setLoading(!loading);
+      });
+  }, []);
+  // console.log(orderItem);
+
+  const handleBlur = (e) => setQuantity(e.target.value);
+  // console.log(quantity);
+
+  const handleDelete = (id) => {
+    // console.log(id);
+    deleteorder(id);
+    if (id) {
+      toast.success("Product Deleted Successfully");
+    }
+    setLoading(!loading);
+  };
+
   return (
     <div>
       <h1>Your Cart</h1>
-      <p>There are 3 products in your cart</p>
+      <p>There are {orderItem?.length} products in your cart</p>
       <div className="lg:flex md:flex block">
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
@@ -28,43 +55,54 @@ const MyCart = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src="/tailwind-css-component-profile-2@56w.png"
-                          alt="Avatar Tailwind CSS Component"
-                        />
+              {orderItem?.map((order) => (
+                <tr key={order?._id} order={order}>
+                  <th>
+                    <label>
+                      <input type="checkbox" className="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div className="flex items-center space-x-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img
+                            src={order?.image}
+                            alt="Avatar Tailwind CSS Component"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">
+                          {order?.name?.slice(0, 20)}
+                        </div>
+                        <div className="text-sm opacity-50">
+                          {order?.category}
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                      <div className="text-sm opacity-50">United States</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
-                </td>
-                <td>Purple</td>
-                <td>Purple</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">
-                    <TrashIcon className="w-6 h-6" />
-                  </button>
-                </th>
-              </tr>
+                  </td>
+                  <td className="text-2xl">${order?.price}</td>
+                  <td>
+                    <input
+                      onChange={handleBlur}
+                      className="border rounded-lg text-center border-[#3BB77E] text-2xl h-12 w-12"
+                      type="number"
+                      name="quantity"
+                      id="quantity"
+                    />
+                  </td>
+                  <td>{order?.price * quantity}</td>
+                  <th>
+                    <button
+                      onClick={() => handleDelete(order._id)}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      <TrashIcon className="w-6 h-6" />
+                    </button>
+                  </th>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

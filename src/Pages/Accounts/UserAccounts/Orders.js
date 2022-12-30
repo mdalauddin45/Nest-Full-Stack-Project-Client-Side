@@ -1,6 +1,18 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Orders = () => {
+  const [orderItem, setOrderItem] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setOrderItem(data);
+      });
+  }, []);
+  console.log(orderItem);
   return (
     <div className="lg:pl-10 md:pl-10 pt-12 lg:pt-0 md:pt-0">
       <h1 className="text-3xl font-bold font-serif">Your Orders</h1>

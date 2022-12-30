@@ -1,9 +1,38 @@
 import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/solid";
-import React from "react";
+import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Product = ({ product }) => {
   const { name, image, price, category, shop, rating, _id } = product;
+  const { user } = useContext(AuthContext);
+  const handleOrders = (id) => {
+    const order = {
+      id,
+      coustomarName: user?.displayName,
+      email: user?.email,
+      name,
+      image,
+      price,
+      category,
+      shop,
+    };
+    // console.log(order);
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("order place Succesfully");
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="card lg:w-68 md:w-68 w-68 h-96  shadow hover:shadow-[#3BB77E]">
@@ -33,7 +62,10 @@ const Product = ({ product }) => {
           <button className="text-[18px] font-semibold text-[#3BB77E]">
             ${price}
           </button>
-          <button className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold">
+          <button
+            onClick={() => handleOrders(_id)}
+            className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+          >
             <ShoppingCartIcon className="h-4 w-4 mx-2 " /> Add
           </button>
         </div>
