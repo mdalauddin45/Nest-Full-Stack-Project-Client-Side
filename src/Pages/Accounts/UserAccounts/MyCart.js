@@ -5,6 +5,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { deleteorder } from "../../../api/services";
+import PrimaryButton from "../../../components/Button/PrimaryButton";
 import FooterSection from "../../Shared/FooterSection";
 
 const MyCart = () => {
@@ -18,11 +19,11 @@ const MyCart = () => {
         setOrderItem(data);
         setLoading(!loading);
       });
-  }, []);
+  }, [loading]);
   // console.log(orderItem);
 
   const handleBlur = (e) => setQuantity(e.target.value);
-  // console.log(quantity);
+  console.log(quantity);
 
   const handleDelete = (id) => {
     // console.log(id);
@@ -35,8 +36,11 @@ const MyCart = () => {
 
   return (
     <div>
-      <h1>Your Cart</h1>
-      <p>There are {orderItem?.length} products in your cart</p>
+      <h1 className="text-2xl font-bold font-serif px-5 ">Your Cart</h1>
+      <p className="text-xl font-bold font-serif px-5">
+        {" "}
+        There are {orderItem?.length} products in your cart
+      </p>
       <div className="lg:flex md:flex block">
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
@@ -65,7 +69,7 @@ const MyCart = () => {
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
+                        <div className=" w-20 h-20">
                           <img
                             src={order?.image}
                             alt="Avatar Tailwind CSS Component"
@@ -96,7 +100,7 @@ const MyCart = () => {
                   <th>
                     <button
                       onClick={() => handleDelete(order._id)}
-                      className="btn btn-ghost btn-xs"
+                      className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
                     >
                       <TrashIcon className="w-6 h-6" />
                     </button>
