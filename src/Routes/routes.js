@@ -45,11 +45,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "/shop-cart",
-        element: <MyCart />,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <MyCart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/wishlist",
-        element: <WishList />,
+        element: (
+          <PrivateRoute>
+            <WishList />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/product/:id",

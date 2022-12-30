@@ -43,6 +43,35 @@ const ProductDetails = () => {
       })
       .catch((err) => console.error(err));
   };
+  const handleOrders = (id) => {
+    console.log(id);
+    const order = {
+      id,
+      coustomarName: user?.displayName,
+      email: user?.email,
+      name,
+      image,
+      price,
+      category,
+      shop,
+      rating,
+      quentity: 1,
+    };
+    console.log(order);
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("order place Succesfully");
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -70,7 +99,10 @@ const ProductDetails = () => {
             dolore impedit fuga eum eligendi.
           </p>
           <div className="flex ">
-            <button className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold">
+            <button
+              onClick={() => handleOrders(_id)}
+              className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
+            >
               <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
             </button>
             <HeartIcon

@@ -37,8 +37,8 @@ const MyCart = () => {
   return (
     <div>
       <div className=" pt-5 pb-3">
-        <h1 className="text-2xl font-bold font-serif px-5">Your Cart</h1>
-        <p className="text-xl font-bold font-serif px-5">
+        <h1 className="text-5xl   px-5">Your Cart</h1>
+        <p className="text-2xl px-5">
           {" "}
           There are {orderItem?.length} products in your cart
         </p>

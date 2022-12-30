@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import {
   ArrowPathIcon,
@@ -11,10 +11,12 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { deleteorder } from "../../api/services";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Navbar = () => {
   const [orders, setOrders] = useState([]);
   // const [wishlist, setWishlist] = useState([]);
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetch("http://localhost:5000/orders")
@@ -128,14 +130,20 @@ const Navbar = () => {
             <div>
               <div className="dropdown dropdown-end px-2 ">
                 <div className="flex  hover:border rounded-lg px-2    hover:bg-[#3BB77E]  hover:text-white">
-                  <label tabIndex={0} className="pt-3">
-                    <div className="indicator">
-                      <ShoppingCartIcon className="h-6 w-6 " />
-                      <span className="badge badge-sm indicator-item bg-[#3BB77E] border-none py-3">
-                        {orders?.length}
-                      </span>
-                    </div>
-                  </label>
+                  {user?.email ? (
+                    <>
+                      <label tabIndex={0} className="pt-3">
+                        <div className="indicator">
+                          <ShoppingCartIcon className="h-6 w-6 " />
+                          <span className="badge badge-sm indicator-item bg-[#3BB77E] border-none py-3">
+                            {orders?.length}
+                          </span>
+                        </div>
+                      </label>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                   <p className="hidden lg:flex pt-3 mx-4">Cart</p>
                 </div>
                 <div

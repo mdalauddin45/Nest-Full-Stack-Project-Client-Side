@@ -71,7 +71,9 @@ export const deleteorder = async (id) => {
   const result = await response.json();
   return result;
 };
+
 export const deleteWishlit = async (id) => {
+  console.log(id);
   const response = await fetch(`http://localhost:5000/wishlist/${id}`, {
     method: "DELETE",
     headers: {
