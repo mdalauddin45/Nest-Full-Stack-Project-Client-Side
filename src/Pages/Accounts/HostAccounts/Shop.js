@@ -4,8 +4,8 @@ import HostProfile from "./HostProfile";
 
 function Shop() {
   return (
-    <div className=" px-5 py-5">
-      <div className="lg:pl-[50%] md:pl-[30%]">
+    <div className="lg:flex md:flex block px-5 py-5">
+      <div>
         <HostProfile />
       </div>
       <div className="px-2">
