@@ -75,6 +75,19 @@ export const addOrder = async (orderData) => {
   return data;
 };
 
+//get filtered order for customer
+export const getOrders = async (email) => {
+  const response = await fetch(`http://localhost:5000/orders/${email}`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
 // delet order
 export const deleteorder = async (id) => {
   const response = await fetch(`http://localhost:5000/orders/${id}`, {

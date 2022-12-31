@@ -2,24 +2,27 @@ import {
   ArrowRightOnRectangleIcon,
   TrashIcon,
 } from "@heroicons/react/24/solid";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { deleteorder } from "../../../api/services";
+import { deleteorder, getOrders } from "../../../api/services";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import FooterSection from "../../Shared/FooterSection";
 
 const MyCart = () => {
   const [orderItem, setOrderItem] = useState([]);
   const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(false);
+  const { user } = useContext(AuthContext);
+  const fetchProducts = () =>
+    getOrders(user?.email).then((data) => {
+      setOrderItem(data);
+      setLoading(!loading);
+    });
+
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
-      .then((res) => res.json())
-      .then((data) => {
-        setOrderItem(data);
-        setLoading(!loading);
-      });
-  }, [loading]);
+    fetchProducts();
+  }, [user, loading]);
   // console.log(orderItem);
 
   const handleBlur = (e) => setQuantity(e.target.value);

@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { Link, NavLink } from "react-router-dom";
-import { deleteorder } from "../../api/services";
+import { deleteorder, getOrders } from "../../api/services";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -18,14 +18,15 @@ const Navbar = () => {
   // const [wishlist, setWishlist] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    fetch("http://localhost:5000/orders")
-      .then((res) => res.json())
-      .then((data) => {
-        setOrders(data);
-        setLoading(!loading);
-      });
-  }, [loading]);
+  // const fetchProducts = () =>
+  //   getOrders(user?.email).then((data) => {
+  //     setOrders(data);
+  //     setLoading(!loading);
+  //   });
+
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, [user, loading]);
   const handleDelete = (id) => {
     // console.log(id);
     deleteorder(id);
@@ -136,7 +137,7 @@ const Navbar = () => {
                         <div className="indicator">
                           <ShoppingCartIcon className="h-6 w-6 " />
                           <span className="badge badge-sm indicator-item bg-[#3BB77E] border-none py-3">
-                            {orders?.length}
+                            0
                           </span>
                         </div>
                       </label>
@@ -151,11 +152,12 @@ const Navbar = () => {
                   className="mt-3 card card-compact dropdown-content w-[300px] bg-base-100 shadow"
                 >
                   <div className="card-body">
-                    {orders &&
+                    {/* {orders &&
+                      orders?.length > 0 &&
                       orders?.map((order) => (
                         <div
                           order={order}
-                          key={order._id}
+                          key={order?._id}
                           className="flex justify-between"
                         >
                           <div className="flex items-center space-x-3">
@@ -183,7 +185,7 @@ const Navbar = () => {
                             <TrashIcon className="w-6 h-6" />
                           </button>
                         </div>
-                      ))}
+                      ))} */}
                     <div className="card-actions flex justify-between  py-5">
                       <Link
                         to={"/shop-cart"}
