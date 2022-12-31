@@ -151,38 +151,39 @@ const Navbar = () => {
                   className="mt-3 card card-compact dropdown-content w-[300px] bg-base-100 shadow"
                 >
                   <div className="card-body">
-                    {orders?.map((order) => (
-                      <div
-                        order={order}
-                        key={order._id}
-                        className="flex justify-between"
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className="avatar">
-                            <div className=" w-20 h-20">
-                              <img
-                                src={order?.image}
-                                alt="Avatar Tailwind CSS Component"
-                              />
-                            </div>
-                          </div>
-                          <div className=" lg:w-full">
-                            <div className="font-bold">
-                              {order?.name?.slice(0, 20)}
-                            </div>
-                            <div className="text-sm opacity-50">
-                              1 X ${order?.price}
-                            </div>
-                          </div>
-                        </div>
-                        <button
-                          onClick={() => handleDelete(order._id)}
-                          className=" h-10 py-2 px-2 mt-5 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+                    {orders &&
+                      orders?.map((order) => (
+                        <div
+                          order={order}
+                          key={order._id}
+                          className="flex justify-between"
                         >
-                          <TrashIcon className="w-6 h-6" />
-                        </button>
-                      </div>
-                    ))}
+                          <div className="flex items-center space-x-3">
+                            <div className="avatar">
+                              <div className=" w-20 h-20">
+                                <img
+                                  src={order?.image}
+                                  alt="Avatar Tailwind CSS Component"
+                                />
+                              </div>
+                            </div>
+                            <div className=" lg:w-full">
+                              <div className="font-bold">
+                                {order?.name?.slice(0, 20)}
+                              </div>
+                              <div className="text-sm opacity-50">
+                                1 X ${order?.price}
+                              </div>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => handleDelete(order?._id)}
+                            className=" h-10 py-2 px-2 mt-5 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+                          >
+                            <TrashIcon className="w-6 h-6" />
+                          </button>
+                        </div>
+                      ))}
                     <div className="card-actions flex justify-between  py-5">
                       <Link
                         to={"/shop-cart"}

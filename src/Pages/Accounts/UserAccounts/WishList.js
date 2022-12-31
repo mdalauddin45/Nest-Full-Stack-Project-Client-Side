@@ -1,22 +1,25 @@
 import { TrashIcon } from "@heroicons/react/24/solid";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { deleteWishlit } from "../../../api/services";
+import { deleteWishlit, getWishlist } from "../../../api/services";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import FooterSection from "../../Shared/FooterSection";
 import WishListRow from "./WishListRow";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const fetchProducts = () =>
+    getWishlist(user?.email).then((data) => {
+      setWishlist(data);
+      setLoading(!loading);
+    });
 
   useEffect(() => {
-    fetch("http://localhost:5000/wishlist")
-      .then((res) => res.json())
-      .then((data) => {
-        setWishlist(data);
-        setLoading(!loading);
-      });
-  }, [loading]);
+    fetchProducts();
+  }, [user, loading]);
+  console.log(wishlist);
   const handleDelete = (id) => {
     // console.log(id);
     deleteWishlit(id);
@@ -44,13 +47,14 @@ const WishList = () => {
             </tr>
           </thead>
           <tbody>
-            {wishlist?.map((order) => (
-              <WishListRow
-                order={order}
-                key={order._id}
-                handleDelete={handleDelete}
-              ></WishListRow>
-            ))}
+            {wishlist &&
+              wishlist?.map((order) => (
+                <WishListRow
+                  order={order}
+                  key={order._id}
+                  handleDelete={handleDelete}
+                ></WishListRow>
+              ))}
           </tbody>
         </table>
       </div>

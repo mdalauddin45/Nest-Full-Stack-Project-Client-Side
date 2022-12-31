@@ -23,7 +23,7 @@ const MyCart = () => {
   // console.log(orderItem);
 
   const handleBlur = (e) => setQuantity(e.target.value);
-  console.log(quantity);
+  // console.log(quantity);
 
   const handleDelete = (id) => {
     // console.log(id);

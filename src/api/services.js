@@ -60,6 +60,22 @@ export const deleteproduct = async (id) => {
   const result = await response.json();
   return result;
 };
+// get add order
+export const addOrder = async (orderData) => {
+  const response = await fetch(`http://localhost:5000/orders`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+    body: JSON.stringify(orderData),
+  });
+
+  const data = await response.json();
+  return data;
+};
+
+// delet order
 export const deleteorder = async (id) => {
   const response = await fetch(`http://localhost:5000/orders/${id}`, {
     method: "DELETE",
@@ -70,6 +86,21 @@ export const deleteorder = async (id) => {
   });
   const result = await response.json();
   return result;
+};
+
+// get wishlist
+export const addWishlist = async (wishlistData) => {
+  const response = await fetch(`http://localhost:5000/wishlist`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+    body: JSON.stringify(wishlistData),
+  });
+
+  const data = await response.json();
+  return data;
 };
 
 export const deleteWishlit = async (id) => {
@@ -83,4 +114,17 @@ export const deleteWishlit = async (id) => {
   });
   const result = await response.json();
   return result;
+};
+
+//get filtered products for wishlist
+export const getWishlist = async (email) => {
+  const response = await fetch(`http://localhost:5000/wishlist/${email}`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+  const data = await response.json();
+  return data;
 };

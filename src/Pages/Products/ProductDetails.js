@@ -7,6 +7,7 @@ import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import { addOrder, addWishlist } from "../../api/services";
 import { AuthContext } from "../../contexts/AuthProvider";
 import FooterSection from "../Shared/FooterSection";
 
@@ -15,7 +16,6 @@ const ProductDetails = () => {
   const { user } = useContext(AuthContext);
   const { name, image, price, description, category, rating, shop, _id } =
     product;
-  console.log(product);
   const handleWishlist = (id) => {
     const productData = {
       id,
@@ -29,18 +29,12 @@ const ProductDetails = () => {
       rating,
     };
     // console.log(order);
-    fetch("http://localhost:5000/wishlist", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(productData),
-    })
-      .then((res) => res.json())
+    addWishlist(productData)
       .then((data) => {
         console.log(data);
-        toast.success("wishlist added  Succesfully");
+        toast.success("Added Successfuly !");
       })
+
       .catch((err) => console.error(err));
   };
   const handleOrders = (id) => {
@@ -57,18 +51,11 @@ const ProductDetails = () => {
       rating,
       quentity: 1,
     };
-    console.log(order);
-    fetch("http://localhost:5000/orders", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(order),
-    })
-      .then((res) => res.json())
+    // console.log(order);
+    addOrder(order)
       .then((data) => {
-        console.log(data);
-        toast.success("order place Succesfully");
+        // console.log(data);
+        toast.success("Added Successfuly !");
       })
       .catch((err) => console.error(err));
   };
