@@ -6,7 +6,7 @@ import FooterSection from "../../Shared/FooterSection";
 import WishListRow from "./WishListRow";
 import empty from "../../../assets//Banar/Empty.png";
 import { Link } from "react-router-dom";
-import cartImage from "../../../assets/Banar/single-banner.jpg";
+// import cartImage from "../../../assets/Banar/single-banner.jpg";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -32,6 +32,21 @@ const WishList = () => {
 
   return (
     <div>
+      {/* <div
+        style={{
+          width: "100%",
+          height: "300px",
+          position: "relative",
+          background: `url(${cartImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          borderRadius: "10px",
+          marginTop: "10px",
+        }}
+        className="text-center py-10"
+      >
+        <h1 className="text-5xl text-white py-20">Wishlist</h1>
+      </div> */}
       {wishlist.length > 0 ? (
         <>
           <h1 className="text-5xl  px-5 pt-3">Your Wishlist</h1>
@@ -63,25 +78,12 @@ const WishList = () => {
           </div>
         </>
       ) : (
-        <div className="text-center items-center">
-          <div
-            style={{
-              width: "100%",
-              height: "300px",
-              position: "relative",
-              background: `url(${cartImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              opacity: "0.8",
-            }}
-          >
-            <h1 className="text-5xl text-white">Cart</h1>
-          </div>
+        <div className="text-center items-center py-10">
           <div className="flex justify-center">
             <img src={empty} alt="" />
           </div>
           <div className="text-2xl pb-10">
-            <h1>Uh-oh! Your Cart appears to be empty!</h1>
+            <h1>Uh-oh! Your wishlist appears to be empty!</h1>
             <h1>Try Purbliss soap today!</h1>
           </div>
           <Link
