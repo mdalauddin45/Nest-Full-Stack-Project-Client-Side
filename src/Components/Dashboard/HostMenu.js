@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const HostMenu = () => {
   return (
-    <>
+    <div className="px-2">
       <NavLink
         to="/account/shop"
         className={({ isActive }) =>
@@ -45,7 +45,7 @@ const HostMenu = () => {
 
         <span className="mx-4 font-medium">Update Products</span>
       </NavLink>
-    </>
+    </div>
   );
 };
 

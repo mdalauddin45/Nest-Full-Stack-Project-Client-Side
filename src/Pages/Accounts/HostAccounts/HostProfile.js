@@ -25,8 +25,8 @@ const HostProfile = () => {
 
   //   console.log(user);
   return (
-    <div className="w-96">
-      <div className="flex flex-col justify-center max-w-xs px-8 py-6 shadow-md rounded-xl  text-gray-900 bg-[#d1e8f2]">
+    <div className=" md:max-w-xs lg:max-w-xs px-10 md:px-0 lg:px-0">
+      <div className="flex flex-col justify-center lg:px-4 md:px-4 px-10 py-6 shadow-md rounded-xl  text-gray-900 bg-[#d1e8f2]">
         <img
           src={user?.photoURL}
           alt=""
