@@ -2,7 +2,7 @@ import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/solid";
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { addOrder, addProduct } from "../../api/services";
+import { addOrder } from "../../api/services";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Product = ({ product }) => {
@@ -52,7 +52,7 @@ const Product = ({ product }) => {
           <p className="text-[#253D4E] ml-2"> ({rating})</p>
         </div>
         <h1 className="flex text-[14px]">
-          By{" "}
+          By
           <Link to={`/shop/${shop}`}>
             <p className="text-[#3BB77E] ml-1">{shop}</p>
           </Link>

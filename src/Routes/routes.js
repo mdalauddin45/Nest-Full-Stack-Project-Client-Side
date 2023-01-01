@@ -7,6 +7,7 @@ import AllBuyer from "../Pages/Accounts/AdminAcounts/AllBuyer";
 import AllReports from "../Pages/Accounts/AdminAcounts/AllReports";
 import AllUsers from "../Pages/Accounts/AdminAcounts/AllUsers";
 import Profile from "../Pages/Accounts/AdminAcounts/Profile";
+import ShopNameData from "../Pages/Accounts/AllUserAccount/ShopNameData";
 import AddProducts from "../Pages/Accounts/HostAccounts/AddProducts";
 import Shop from "../Pages/Accounts/HostAccounts/Shop";
 import UpdateProducts from "../Pages/Accounts/HostAccounts/UpdateProducts";
@@ -42,6 +43,12 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllProducts />,
+      },
+      {
+        path: "/shop/:shop",
+        element: <ShopNameData />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/shop/${params.shop}`),
       },
       {
         path: "/shop-cart",
