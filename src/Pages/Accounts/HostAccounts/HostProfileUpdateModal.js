@@ -5,7 +5,7 @@ import SmallSpinner from "../../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
 
   return (
     <div>

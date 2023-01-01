@@ -4,7 +4,7 @@ import { getProducts } from "../../../api/services";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import HostProductsCard from "./HostProductsCard";
 
-const HostProducts = ({ handelUpdateProfile }) => {
+const HostProducts = () => {
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);

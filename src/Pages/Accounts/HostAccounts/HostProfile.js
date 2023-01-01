@@ -56,6 +56,7 @@ const HostProfile = () => {
           description,
         };
         console.log(UpdateShop);
+
         fetch(`http://localhost:5000/user/${user?.email}`, {
           method: "PATCH",
           headers: {
