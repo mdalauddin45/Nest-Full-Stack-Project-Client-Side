@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const HostMenu = () => {
   return (
-    <div className="px-2">
+    <div>
       <NavLink
         to="/account/shop"
         className={({ isActive }) =>

@@ -10,7 +10,7 @@ const Menubar = ({ role }) => {
   // console.log(role);
   const { logout } = useContext(AuthContext);
   return (
-    <div>
+    <div className="px-2">
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
           {role && role !== "requested" ? (

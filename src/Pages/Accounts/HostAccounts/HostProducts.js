@@ -30,7 +30,7 @@ const HostProducts = ({ handelUpdateProfile }) => {
             </h1>
             <label
               htmlFor="update-modal"
-              className="px-5 py-3 text-white bg-[#5596e6] text-xl  text-gary-300"
+              className="px-3 py-2 text-white bg-[#3BB77E] text-[12px]"
             >
               Update
             </label>

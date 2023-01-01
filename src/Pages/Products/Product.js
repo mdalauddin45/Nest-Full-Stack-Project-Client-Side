@@ -52,7 +52,10 @@ const Product = ({ product }) => {
           <p className="text-[#253D4E] ml-2"> ({rating})</p>
         </div>
         <h1 className="flex text-[14px]">
-          By <p className="text-[#3BB77E] ml-1">{shop}</p>
+          By{" "}
+          <Link to={`/shop/${shop}`}>
+            <p className="text-[#3BB77E] ml-1">{shop}</p>
+          </Link>
         </h1>
         <div className="flex justify-between pb-6">
           <button className="text-[18px] font-semibold text-[#3BB77E]">
