@@ -12,7 +12,7 @@ const HostMenu = () => {
       <NavLink
         to="/account/shop"
         className={({ isActive }) =>
-          `flex items-center px-6 py-4 border rounded-lg mt-5  transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
+          `flex items-center px-6 py-4 border rounded-lg   transition-colors duration-300 transform  hover:bg-[#3BB77E]   hover:text-white ${
             isActive ? "bg-[#3BB77E]  text-white" : "text-gray-600"
           }`
         }

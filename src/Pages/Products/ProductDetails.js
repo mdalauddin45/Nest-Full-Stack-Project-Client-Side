@@ -6,7 +6,7 @@ import {
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { addOrder, addWishlist } from "../../api/services";
 import { AuthContext } from "../../contexts/AuthProvider";
 import FooterSection from "../Shared/FooterSection";
@@ -86,16 +86,32 @@ const ProductDetails = () => {
             dolore impedit fuga eum eligendi.
           </p>
           <div className="flex ">
-            <button
-              onClick={() => handleOrders(_id)}
-              className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
-            >
-              <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
-            </button>
-            <HeartIcon
-              onClick={() => handleWishlist(_id)}
-              className="border rounded-md py-2 px-2 ml-6 mt-5  h-14 w-14 hover:bg-[#3BB77E] hover:text-white "
-            />
+            {user?.email ? (
+              <>
+                <button
+                  onClick={() => handleOrders(_id)}
+                  className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
+                >
+                  <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
+                </button>
+                <HeartIcon
+                  onClick={() => handleWishlist(_id)}
+                  className="border rounded-md py-2 px-2 ml-6 mt-5  h-14 w-14 hover:bg-[#3BB77E] hover:text-white "
+                />
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
+                >
+                  <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
+                </Link>
+                <Link to="/login">
+                  <HeartIcon className="border rounded-md py-2 px-2 ml-6 mt-5  h-14 w-14 hover:bg-[#3BB77E] hover:text-white " />
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

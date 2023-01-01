@@ -66,7 +66,7 @@ const HostProfile = () => {
             </div>
             <div className="flex space-y-1">
               <PhoneIcon className="h-5 w-5  text-[#3BB77E]" />
-              <p className="px-1">Call Us:(+91) - 540-025-124553</p>
+              <p className="px-1">Call Us:(+880) 1845959145</p>
             </div>
             <div>
               <Link>

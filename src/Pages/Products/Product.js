@@ -39,7 +39,7 @@ const Product = ({ product }) => {
         <h1 className="text-[12px]">{category}</h1>
         <Link
           to={`/product/${_id}`}
-          className="card-title text-[16px] text-[#253D4E]"
+          className="card-title text-[16px] text-[#253D4E] hover:text-[#3BB77E]"
         >
           {name?.split(0, 15) + "..."}
         </Link>
@@ -58,12 +58,25 @@ const Product = ({ product }) => {
           <button className="text-[18px] font-semibold text-[#3BB77E]">
             ${price}
           </button>
-          <button
-            onClick={() => handleOrders(_id)}
-            className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
-          >
-            <ShoppingCartIcon className="h-4 w-4 mx-2 " /> Add
-          </button>
+          {user?.email ? (
+            <>
+              <button
+                onClick={() => handleOrders(_id)}
+                className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+              >
+                <ShoppingCartIcon className="h-4 w-4 mx-2 " /> Add
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+              >
+                <ShoppingCartIcon className="h-4 w-4 mx-2 " /> Add
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

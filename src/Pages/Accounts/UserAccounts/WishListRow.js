@@ -1,6 +1,7 @@
 import { TrashIcon } from "@heroicons/react/24/solid";
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { addOrder } from "../../../api/services";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
@@ -22,18 +23,10 @@ const WishListRow = ({ order, handleDelete }) => {
       rating,
       quentity: 1,
     };
-    console.log(order);
-    fetch("http://localhost:5000/orders", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(order),
-    })
-      .then((res) => res.json())
+    addOrder(order)
       .then((data) => {
         console.log(data);
-        toast.success("order place Succesfully");
+        toast.success("Added Successfuly !");
       })
       .catch((err) => console.error(err));
   };

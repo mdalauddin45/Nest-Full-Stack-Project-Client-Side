@@ -21,15 +21,25 @@ const HostProducts = () => {
   return (
     <div>
       {products && Array.isArray(products) && products.length > 0 ? (
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 py-10">
-          {products?.map((product) => (
-            <HostProductsCard
-              product={product}
-              key={product?._id}
-              loading={loading}
-              setLoading={setLoading}
-            ></HostProductsCard>
-          ))}
+        <div>
+          <div className="flex justify-between pb-10">
+            <h1 className="text-[16px] text-[#7E7E7E]">
+              We found{" "}
+              <span className="text-[#3BB77E]">{products?.length}</span> items
+              for you!
+            </h1>
+            <button>Update</button>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 lg:pr-3 md:pr-3 px-10 md:px-0 lg:px-0">
+            {products?.map((product) => (
+              <HostProductsCard
+                product={product}
+                key={product?._id}
+                loading={loading}
+                setLoading={setLoading}
+              ></HostProductsCard>
+            ))}
+          </div>
         </div>
       ) : (
         <div className="text-center text-3xl py-5 ">

@@ -4,11 +4,11 @@ import HostProfile from "./HostProfile";
 
 function Shop() {
   return (
-    <div className="lg:flex md:flex block px-5 py-5">
+    <div className="lg:flex md:flex block  py-5">
       <div>
         <HostProfile />
       </div>
-      <div className="px-2">
+      <div>
         <HostProducts />
       </div>
     </div>
