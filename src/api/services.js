@@ -141,3 +141,64 @@ export const getWishlist = async (email) => {
   const data = await response.json();
   return data;
 };
+
+// post a shop
+export const addShop = async (shopData) => {
+  const response = await fetch(`http://localhost:5000/shops`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+    body: JSON.stringify(shopData),
+  });
+
+  const data = await response.json();
+  return data;
+};
+//get filtered shops for shop owner
+export const getShop = async (shop) => {
+  const response = await fetch(`http://localhost:5000/shops/${shop}`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
+// update a shop
+export const updateShop = async (shopData) => {
+  const response = await fetch(
+    `http://localhost:5000/shops/${shopData?.email}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+      },
+      body: JSON.stringify(shopData),
+    }
+  );
+  const data = await response.json();
+  return data;
+};
+
+// update a shop
+export const updateUser = async (shopData) => {
+  const response = await fetch(
+    `http://localhost:5000/shops/${shopData?.email}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+      },
+      body: JSON.stringify(shopData),
+    }
+  );
+  const data = await response.json();
+  return data;
+};

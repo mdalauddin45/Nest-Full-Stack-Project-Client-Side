@@ -10,6 +10,7 @@ import HostProfileUpdateModal from "./HostProfileUpdateModal";
 import { imageUpload } from "../../../api/ImageUpload";
 import { getUser } from "../../../api/auth";
 import { toast } from "react-hot-toast";
+import { updateShop } from "../../../api/services";
 
 const HostProfile = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const HostProfile = () => {
 
   useEffect(() => {
     fetchProfile();
-  }, [user]);
+  }, [user, loading]);
 
   const handelUpdateProfile = (event) => {
     event.preventDefault();
@@ -56,6 +57,9 @@ const HostProfile = () => {
           description,
         };
         console.log(UpdateShop);
+        updateShop(UpdateShop).then((data) => {
+          console.log(data);
+        });
 
         fetch(`http://localhost:5000/user/${user?.email}`, {
           method: "PATCH",

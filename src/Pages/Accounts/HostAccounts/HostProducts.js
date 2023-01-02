@@ -20,21 +20,23 @@ const HostProducts = () => {
   //   console.log(products);
   return (
     <div>
+      <div className="flex justify-between p-10 lg:p-0 lg:pb-10 lg:px-5">
+        <h1 className="text-[16px] text-[#7E7E7E]">
+          We found{" "}
+          <span className="text-[#3BB77E]">
+            {products?.length ? products.length : "0"}
+          </span>{" "}
+          items for you!
+        </h1>
+        <label
+          htmlFor="update-modal"
+          className="px-3 py-2 text-white bg-[#3BB77E] text-[12px]"
+        >
+          Update
+        </label>
+      </div>
       {products && Array.isArray(products) && products.length > 0 ? (
         <div>
-          <div className="flex justify-between p-10 lg:p-0 lg:pb-10 lg:px-5">
-            <h1 className="text-[16px] text-[#7E7E7E]">
-              We found{" "}
-              <span className="text-[#3BB77E]">{products?.length}</span> items
-              for you!
-            </h1>
-            <label
-              htmlFor="update-modal"
-              className="px-3 py-2 text-white bg-[#3BB77E] text-[12px]"
-            >
-              Update
-            </label>
-          </div>
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 lg:px-3 md:px-3  px-10">
             {products?.map((product) => (
               <HostProductsCard

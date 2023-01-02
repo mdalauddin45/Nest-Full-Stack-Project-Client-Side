@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setAuthToken } from "../../api/auth";
+import { addShop } from "../../api/services";
 import { makeHost } from "../../api/User";
 import PrimaryButton from "../../components/Button/PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
@@ -56,6 +57,9 @@ const SignUp = () => {
               .then(() => {
                 if (userData.role === "host") {
                   makeHost(userData);
+                  addShop(userData).then((data) => {
+                    console.log(data);
+                  });
                 }
                 toast.success("Sign up Succesfuly");
                 setLoading(false);

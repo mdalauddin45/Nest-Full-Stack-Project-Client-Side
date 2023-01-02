@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
+import { getUser } from "../../../api/auth";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
 import SmallSpinner from "../../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
-  const { loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState([]);
+
+  const fetchProfile = () =>
+    getUser(user?.email).then((data) => {
+      setProfile(data);
+      setLoading(!loading);
+    });
+
+  useEffect(() => {
+    fetchProfile();
+  }, [user]);
 
   return (
     <div>
@@ -34,6 +47,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                 name="shopname"
                 placeholder="Enter Your Shop Name"
                 className="w-full px-4 py-3 rounded-md bg-gray-100  text-gray-900 "
+                defaultValue={profile?.shopname}
               />
             </div>
 
@@ -44,6 +58,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                 name="since"
                 placeholder="Enter Since Year"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                defaultValue={profile?.since}
               />
             </div>
             <div className="space-y-3 text-sm">
@@ -53,6 +68,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                 name="description"
                 placeholder="Enter Your Shop Description"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                defaultValue={profile?.description}
               />
             </div>
             <div className="space-y-3 text-sm">
@@ -62,6 +78,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                 name="address"
                 placeholder="Enter Your Address"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                defaultValue={profile?.address}
               />
             </div>
             <div className="space-y-3 text-sm">
@@ -71,6 +88,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                 name="phone"
                 placeholder="Enter Your Phone Number"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                defaultValue={profile?.phone}
               />
             </div>
 
@@ -82,6 +100,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                   name="twitter"
                   placeholder="Enter Your twitter link"
                   className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                  defaultValue={profile?.twitter}
                 />
               </div>
               <div className="space-y-3 text-sm w-full">
@@ -91,6 +110,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                   name="facebook"
                   placeholder="Enter Your facebook link"
                   className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                  defaultValue={profile?.facebook}
                 />
               </div>
             </div>
@@ -102,6 +122,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                   name="instagram"
                   placeholder="Enter Your instagram link"
                   className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                  defaultValue={profile?.instagram}
                 />
               </div>
               <div className="space-y-3 text-sm w-full">
@@ -111,6 +132,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                   name="pinterest"
                   placeholder="Enter Your pinterest link"
                   className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
+                  defaultValue={profile?.pinterest}
                 />
               </div>
             </div>
@@ -122,6 +144,7 @@ const HostProfileUpdateModal = ({ handelUpdateProfile }) => {
                 name="image"
                 accept="image/*"
                 className="file-input  file-input-success w-full "
+                defaultValue={profile?.image}
               />
             </div>
             <div>
