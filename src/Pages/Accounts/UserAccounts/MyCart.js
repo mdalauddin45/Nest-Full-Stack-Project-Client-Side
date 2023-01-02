@@ -4,8 +4,19 @@ import {
 } from "@heroicons/react/24/solid";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
-import { deleteorder, getOrders } from "../../../api/services";
+import {
+  Link,
+  Navigate,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
+import {
+  addCheckout,
+  deleteorder,
+  getOrders,
+  updateCheckOut,
+} from "../../../api/services";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import FooterSection from "../../Shared/FooterSection";
@@ -13,9 +24,11 @@ import empty from "../../../assets//Banar/Empty.png";
 
 const MyCart = () => {
   const [orderItem, setOrderItem] = useState([]);
-  const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/checkout";
   const fetchProducts = () =>
     getOrders(user?.email).then((data) => {
       setOrderItem(data);
@@ -27,9 +40,6 @@ const MyCart = () => {
   }, [user, loading]);
   // console.log(orderItem);
 
-  const handleBlur = (e) => setQuantity(e.target.value);
-  // console.log(quantity);
-
   const handleDelete = (id) => {
     // console.log(id);
     deleteorder(id);
@@ -39,6 +49,52 @@ const MyCart = () => {
     setLoading(!loading);
   };
 
+  // total price
+  const total = orderItem?.reduce((acc, cur) => acc + cur.subtotal, 0);
+  // delevery charge
+  if (total > 1000) {
+    var deleveryCharge = 100;
+  } else {
+    var deleveryCharge = 50;
+  }
+  // total price with delevery charge
+  const totalWithDeleveryCharge = total + deleveryCharge;
+
+  //check out
+  const handleCheckOut = () => {
+    // total price
+    const total = orderItem?.reduce((acc, cur) => acc + cur.subtotal, 0);
+    const orderItemForCheckOut = orderItem?.map((order) => {
+      return {
+        id: order.id,
+        coustomarName: order.coustomarName,
+        email: order.email,
+        name: order.name,
+        image: order.image,
+        price: order.price,
+        category: order.category,
+        shop: order.shop,
+        quantity: order.quantity,
+        subtotal: order.subtotal,
+      };
+    });
+    const checkOutData = {
+      coustomarName: user?.displayName,
+      email: user?.email,
+      orderItem: orderItemForCheckOut,
+      total: total,
+      deleveryCharge: deleveryCharge,
+      totalWithDeleveryCharge: totalWithDeleveryCharge,
+    };
+
+    updateCheckOut(checkOutData).then((data) => {
+      console.log(data);
+      toast.success("Added Successfuly !");
+      setLoading(!loading);
+      navigate(from, { replace: true });
+    });
+  };
+
   return (
     <div>
       {orderItem.length > 0 ? (
@@ -46,7 +102,6 @@ const MyCart = () => {
           <div className=" pt-5 pb-3">
             <h1 className="text-5xl   px-5">Your Cart</h1>
             <p className="text-2xl px-5">
-              {" "}
               There are {orderItem?.length} products in your cart
             </p>
           </div>
@@ -89,16 +144,11 @@ const MyCart = () => {
                       <td className="text-2xl pt-10 lg:pt-0">
                         ${order?.price}
                       </td>
-                      <td>
-                        <input
-                          onChange={handleBlur}
-                          className="border rounded-lg text-center border-[#3BB77E] text-2xl h-12 w-12"
-                          type="number"
-                          name="quantity"
-                          id="quantity"
-                        />
-                      </td>
+
                       <td>{order?.quantity}</td>
+                      <td className="text-2xl pt-10 lg:pt-0">
+                        ${order?.subtotal?.toFixed(2)}
+                      </td>
                       <th>
                         <button
                           onClick={() => handleDelete(order._id)}
@@ -135,7 +185,7 @@ const MyCart = () => {
                   <span className="text-[16px] font-bold text-[#B6B6B6]">
                     Subtotal
                   </span>
-                  <span className="text-[24px] text-[#3BB77E]">$21.50</span>
+                  <span className="text-[24px] text-[#3BB77E]">${total}</span>
                 </div>
               </div>
               <div className="pt-4 space-y-2">
@@ -144,17 +194,20 @@ const MyCart = () => {
                     <span className="text-[16px] font-bold text-[#B6B6B6]">
                       Delivery fee
                     </span>
-                    <span className="text-[24px] text-[#3BB77E]">free</span>
+                    <span className="text-[24px] text-[#3BB77E]">
+                      ${deleveryCharge}
+                    </span>
                   </div>
                 </div>
                 <div className="space-y-6">
                   <div className="flex justify-between">
                     <span className="text-[16px] font-bold ">Total</span>
                     <span className="font-semibold text-[24px] text-[#3BB77E]">
-                      $22.70
+                      {totalWithDeleveryCharge}
                     </span>
                   </div>
                   <button
+                    onClick={handleCheckOut}
                     type="button"
                     className="w-full flex py-4 px-5 font-semibold border rounded bg-[#3BB77E] text-white"
                   >

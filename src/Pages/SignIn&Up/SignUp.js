@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setAuthToken } from "../../api/auth";
-import { addShop } from "../../api/services";
+import { addCheckout, addShop } from "../../api/services";
 import { makeHost } from "../../api/User";
 import PrimaryButton from "../../components/Button/PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
@@ -55,6 +55,10 @@ const SignUp = () => {
             // console.log(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
+                addCheckout(userData).then((data) => {
+                  console.log(data);
+                });
+
                 if (userData.role === "host") {
                   makeHost(userData);
                   addShop(userData).then((data) => {

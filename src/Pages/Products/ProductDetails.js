@@ -14,6 +14,7 @@ import FooterSection from "../Shared/FooterSection";
 const ProductDetails = () => {
   const product = useLoaderData();
   const { user } = useContext(AuthContext);
+  const [quantity, setQuantity] = useState(0);
   const { name, image, price, description, category, rating, shop, _id } =
     product;
   const handleWishlist = (id) => {
@@ -49,7 +50,8 @@ const ProductDetails = () => {
       category,
       shop,
       rating,
-      quentity: 1,
+      quantity,
+      subtotal: price * quantity,
     };
     // console.log(order);
     addOrder(order)
@@ -59,6 +61,12 @@ const ProductDetails = () => {
       })
       .catch((err) => console.error(err));
   };
+
+  const handleBlur = (e) => setQuantity(e.target.value);
+  // console.log(quantity);
+  if (quantity < 0) {
+    toast.error("Quantity can't be negative");
+  }
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -88,12 +96,32 @@ const ProductDetails = () => {
           <div className="flex ">
             {user?.email ? (
               <>
-                <button
-                  onClick={() => handleOrders(_id)}
-                  className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
-                >
-                  <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
-                </button>
+                <div className="pr-2 pt-5">
+                  <input
+                    onChange={handleBlur}
+                    className="border rounded-lg text-center border-[#3BB77E] text-2xl h-14 w-12"
+                    type="number"
+                    name="quantity"
+                    id="quantity"
+                    defaultValue={1}
+                  />
+                </div>
+                {quantity < 0 ? (
+                  <button
+                    disabled
+                    onClick={() => handleOrders(_id)}
+                    className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
+                  >
+                    <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleOrders(_id)}
+                    className="my-5 px-2 py-4 text-white rounded flex w-40 bg-[#3BB77E] text-[16px] font-bold"
+                  >
+                    <ShoppingCartIcon className="h-6 w-6 mx-2 " /> Add to Cart
+                  </button>
+                )}
                 <HeartIcon
                   onClick={() => handleWishlist(_id)}
                   className="border rounded-md py-2 px-2 ml-6 mt-5  h-14 w-14 hover:bg-[#3BB77E] hover:text-white "
@@ -115,7 +143,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <div className=" px-10 py-5">
+      <div className=" px-5 py-5">
         <h1 className="text-2xl font-bold pb-2">Description</h1>
         {description ? (
           description

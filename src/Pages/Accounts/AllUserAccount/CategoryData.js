@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useLocation } from "react-router-dom";
 import Product from "../../Products/Product";
 import categoryImage from "../../../assets/Shop/header-bg.png";
+import FooterSection from "../../Shared/FooterSection";
 
 const CategoryData = () => {
   const products = useLoaderData();
@@ -14,7 +15,7 @@ const CategoryData = () => {
       <div
         style={{
           width: "100%",
-          height: "300px",
+          height: "240px",
           position: "relative",
           background: `url(${categoryImage})`,
           backgroundSize: "cover",
@@ -35,6 +36,7 @@ const CategoryData = () => {
           <Product product={product} key={product._id}></Product>
         ))}
       </div>
+      <FooterSection />
     </div>
   );
 };

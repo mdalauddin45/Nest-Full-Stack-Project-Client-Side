@@ -202,3 +202,45 @@ export const updateUser = async (shopData) => {
   const data = await response.json();
   return data;
 };
+// post a shop
+export const addCheckout = async (CheckOutData) => {
+  const response = await fetch(`http://localhost:5000/checkout`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+    body: JSON.stringify(CheckOutData),
+  });
+
+  const data = await response.json();
+  return data;
+};
+
+export const getCheckout = async (email) => {
+  const response = await fetch(`http://localhost:5000/checkout/${email}`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+// update a shop
+export const updateCheckOut = async (checkOutData) => {
+  const response = await fetch(
+    `http://localhost:5000/checkout/${checkOutData?.email}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+      },
+      body: JSON.stringify(checkOutData),
+    }
+  );
+  const data = await response.json();
+  return data;
+};

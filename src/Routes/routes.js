@@ -13,6 +13,7 @@ import AddProducts from "../Pages/Accounts/HostAccounts/AddProducts";
 import Shop from "../Pages/Accounts/HostAccounts/Shop";
 import UpdateProducts from "../Pages/Accounts/HostAccounts/UpdateProducts";
 import AccountDetails from "../Pages/Accounts/UserAccounts/AccountDetails";
+import CheckOut from "../Pages/Accounts/UserAccounts/CheckOut";
 import MyAddress from "../Pages/Accounts/UserAccounts/MyAddress";
 import MyCart from "../Pages/Accounts/UserAccounts/MyCart";
 import Orders from "../Pages/Accounts/UserAccounts/Orders";
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllProducts />,
+      },
+      {
+        path: "/checkout",
+        element: <CheckOut />,
       },
       {
         path: "/category/:category",
