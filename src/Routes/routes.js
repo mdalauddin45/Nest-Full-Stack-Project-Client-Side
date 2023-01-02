@@ -7,6 +7,7 @@ import AllBuyer from "../Pages/Accounts/AdminAcounts/AllBuyer";
 import AllReports from "../Pages/Accounts/AdminAcounts/AllReports";
 import AllUsers from "../Pages/Accounts/AdminAcounts/AllUsers";
 import Profile from "../Pages/Accounts/AdminAcounts/Profile";
+import CategoryData from "../Pages/Accounts/AllUserAccount/CategoryData";
 import ShopNameData from "../Pages/Accounts/AllUserAccount/ShopNameData";
 import AddProducts from "../Pages/Accounts/HostAccounts/AddProducts";
 import Shop from "../Pages/Accounts/HostAccounts/Shop";
@@ -43,6 +44,12 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllProducts />,
+      },
+      {
+        path: "/category/:category",
+        element: <CategoryData />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/category/${params.category}`),
       },
       {
         path: "/shop/:shop",

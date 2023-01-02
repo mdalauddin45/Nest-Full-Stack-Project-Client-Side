@@ -22,7 +22,7 @@ const CategoryBanners = () => {
     },
   ];
   return (
-    <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-6">
+    <div className="grid gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-6">
       {banners.map((banner) => (
         <Banner banner={banner} key={banner.id}></Banner>
       ))}

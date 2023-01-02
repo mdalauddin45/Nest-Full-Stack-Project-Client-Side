@@ -14,10 +14,10 @@ const ShopNameData = () => {
   return (
     <div>
       <div className="lg:flex md:flex">
-        <div className="w-96">
+        <div className="lg:w-96 md:w-96 md:pl-3">
           <ShopProfile shopname={shopname}></ShopProfile>
         </div>
-        <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-10 lg:px-6 py-10">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 px-10 lg:px-6 py-10 lg:py-0 md:py-0">
           {products?.map((product) => (
             <Product product={product} key={product._id}></Product>
           ))}

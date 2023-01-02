@@ -36,7 +36,12 @@ const Product = ({ product }) => {
         <img className="w-72 h-60 pt-2" src={image} alt="/" />
       </figure>
       <div className="px-3 ">
-        <h1 className="text-[12px]">{category}</h1>
+        <Link
+          to={`/category/${category}`}
+          className="text-[16px] text-[#3BB77E]"
+        >
+          {category}
+        </Link>
         <Link
           to={`/product/${_id}`}
           className="card-title text-[16px] text-[#253D4E] hover:text-[#3BB77E]"

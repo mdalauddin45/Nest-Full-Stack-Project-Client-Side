@@ -21,7 +21,7 @@ const AddProducts = () => {
     const price = form.price.value;
     const shop = form.shopname.value;
     const rating = form.rating.value;
-    const category = form.category.value;
+    const option = form.option.value;
     const description = form.description.value;
     const image = event.target.image.files[0];
     // console.log(product, price, shopName, rating, category, image, description);
@@ -33,7 +33,7 @@ const AddProducts = () => {
           price,
           shop,
           rating,
-          category,
+          category: option,
           image: res.data.display_url,
           email: user?.email,
           seller: {

@@ -80,14 +80,26 @@ const AddProductForm = ({
                 <label htmlFor="category" className="block text-gray-600">
                   Category
                 </label>
-                <input
-                  className="w-full px-4 py-5 border rounded-md border-gray-300 focus:outline-green-500  text-gray-900"
-                  name="category"
-                  id="category"
-                  type="text"
-                  placeholder="Category"
-                  required
-                />
+                <select
+                  name="option"
+                  className="select select-bordered  w-full h-16 bg-white "
+                >
+                  <option value="fruit">Fruit </option>
+
+                  <option value="coffe">Coffe & Tea</option>
+                  <option value="cake">Cake & Milk</option>
+                  <option value="snack">Snack</option>
+                  <option value="vegetables">Vegetables</option>
+                  <option value="beverage">Beverage</option>
+                  <option value="nonfood & pharmacy.">
+                    Nonfood & Pharmacy.
+                  </option>
+                  <option value="produce & floral">Produce & Floral</option>
+                  <option value="deli">Deli</option>
+                  <option value="prepared foods">Prepared Foods</option>
+                  <option value="meat">Meat</option>
+                  <option value="seafood">Seafood</option>
+                </select>
               </div>
             </div>
             <div>
