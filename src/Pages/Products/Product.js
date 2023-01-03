@@ -1,5 +1,5 @@
 import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/solid";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { addOrder } from "../../api/services";
@@ -8,6 +8,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const Product = ({ product }) => {
   const { name, image, price, category, shop, rating, _id } = product;
   const { user } = useContext(AuthContext);
+  const [quantity, setQuantity] = useState(1);
   const handleOrders = (id) => {
     const order = {
       id,
@@ -15,11 +16,12 @@ const Product = ({ product }) => {
       email: user?.email,
       name,
       image,
-      price,
       category,
       shop,
       rating,
-      quentity: 1,
+      price,
+      subtotal: price * quantity,
+      quantity,
     };
     // console.log(order);
     addOrder(order)

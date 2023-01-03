@@ -14,7 +14,7 @@ import FooterSection from "../Shared/FooterSection";
 const ProductDetails = () => {
   const product = useLoaderData();
   const { user } = useContext(AuthContext);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const { name, image, price, description, category, rating, shop, _id } =
     product;
   const handleWishlist = (id) => {

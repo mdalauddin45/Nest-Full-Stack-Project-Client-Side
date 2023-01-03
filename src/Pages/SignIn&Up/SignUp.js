@@ -58,12 +58,11 @@ const SignUp = () => {
                 addCheckout(userData).then((data) => {
                   console.log(data);
                 });
-
+                addShop(userData).then((data) => {
+                  console.log(data);
+                });
                 if (userData.role === "host") {
                   makeHost(userData);
-                  addShop(userData).then((data) => {
-                    console.log(data);
-                  });
                 }
                 toast.success("Sign up Succesfuly");
                 setLoading(false);

@@ -21,7 +21,7 @@ const Products = () => {
   // console.log(allCategory);
   // get only unique categoryname
   const uniqueCategory = [...new Set(allCategory)];
-  console.log(uniqueCategory);
+  // console.log(uniqueCategory);
 
   return (
     <div>

@@ -48,9 +48,10 @@ const MyCart = () => {
     }
     setLoading(!loading);
   };
-
+  // console.log(orderItem);
   // total price
   const total = orderItem?.reduce((acc, cur) => acc + cur.subtotal, 0);
+
   // delevery charge
   if (total > 1000) {
     var deleveryCharge = 100;
@@ -151,7 +152,7 @@ const MyCart = () => {
                       </td>
                       <th>
                         <button
-                          onClick={() => handleDelete(order._id)}
+                          onClick={() => handleDelete(order?._id)}
                           className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
                         >
                           <TrashIcon className="w-6 h-6" />
@@ -165,16 +166,16 @@ const MyCart = () => {
                 <PrimaryButton
                   classes={"bg-[#3BB77E] px-5 py-3 text-white rounded "}
                 >
-                  <span className="text-[16px] font-bold hover:text-white">
+                  <h1 className="text-[16px] font-bold hover:text-white">
                     Continue Shopping
-                  </span>
+                  </h1>
                 </PrimaryButton>
                 <PrimaryButton
                   classes={"bg-[#3BB77E] px-5 py-3 text-white rounded "}
                 >
-                  <span className="text-[16px] font-bold hover:text-white">
+                  <h1 className="text-[16px] font-bold hover:text-white">
                     Update Cart
-                  </span>
+                  </h1>
                 </PrimaryButton>
               </div>
             </div>
@@ -182,29 +183,31 @@ const MyCart = () => {
             <div className="flex flex-col max-w-md mx-10 lg:mt-0 md:mt-0 mt-10 p-6 space-y-4 divide-y sm:w-96 border rounded-lg  ">
               <div className="pt-4 space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-[16px] font-bold text-[#B6B6B6]">
+                  <h1 className="text-[16px] font-bold text-[#B6B6B6]">
                     Subtotal
-                  </span>
-                  <span className="text-[24px] text-[#3BB77E]">${total}</span>
+                  </h1>
+                  <h1 className="text-[24px] text-[#3BB77E]">
+                    ${total.toFixed(2)}
+                  </h1>
                 </div>
               </div>
               <div className="pt-4 space-y-2">
                 <div className="flex flex-col">
                   <div className="flex justify-between">
-                    <span className="text-[16px] font-bold text-[#B6B6B6]">
+                    <h1 className="text-[16px] font-bold text-[#B6B6B6]">
                       Delivery fee
-                    </span>
-                    <span className="text-[24px] text-[#3BB77E]">
+                    </h1>
+                    <h1 className="text-[24px] text-[#3BB77E]">
                       ${deleveryCharge}
-                    </span>
+                    </h1>
                   </div>
                 </div>
                 <div className="space-y-6">
                   <div className="flex justify-between">
-                    <span className="text-[16px] font-bold ">Total</span>
-                    <span className="font-semibold text-[24px] text-[#3BB77E]">
+                    <h1 className="text-[16px] font-bold ">Total</h1>
+                    <h1 className="font-semibold text-[24px] text-[#3BB77E]">
                       {totalWithDeleveryCharge}
-                    </span>
+                    </h1>
                   </div>
                   <button
                     onClick={handleCheckOut}
