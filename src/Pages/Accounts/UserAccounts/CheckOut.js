@@ -1,12 +1,19 @@
 import { ArrowRightOnRectangleIcon, StarIcon } from "@heroicons/react/24/solid";
 import React, { useContext, useEffect, useState } from "react";
 import { getCheckout } from "../../../api/services";
+import PrimaryButton from "../../../components/Button/PrimaryButton";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import FooterSection from "../../Shared/FooterSection";
+import paypal from "../../../assets/Payment/payment-paypal.svg";
+import visa from "../../../assets/Payment/payment-visa.svg";
+import master from "../../../assets/Payment/payment-master.svg";
+import zapper from "../../../assets/Payment/payment-zapper.svg";
+import { toast } from "react-hot-toast";
 
 const CheckOut = () => {
   const [orders, getOrders] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [paymetMethod, setPaymentMethod] = useState("paypal");
   const { user } = useContext(AuthContext);
   const fetchProducts = () =>
     getCheckout(user?.email).then((data) => {
@@ -19,9 +26,49 @@ const CheckOut = () => {
   }, [user]);
   const orderItems = orders?.orderItem;
   //   console.log(orderItems);
+  const _id = orders?._id;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const firstName = e.target.firstName.value;
+    const lastName = e.target.lastName.value;
+    const email = e.target.email.value;
+    const address = e.target.address.value;
+    const address2 = e.target.address2.value;
+    const city = e.target.city.value;
+    const postalCode = e.target.postalCode.value;
+    const country = e.target.country.value;
+    const addtionalInfo = e.target.additionalInfo.value;
+
+    const order = {
+      service: _id,
+      name: firstName + " " + lastName,
+      address: address + " " + address2,
+      country,
+      city,
+      postalCode,
+      email,
+      orderItems,
+      addtionalInfo,
+      paymetMethod,
+      total,
+    };
+    console.log(order);
+    fetch("http://localhost:5000/confirmorder", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.replace(data.url);
+        toast.success("Order Placed Successfully");
+        console.log(data);
+      })
+      .catch((er) => console.error(er));
   };
 
   // total amount
@@ -29,16 +76,18 @@ const CheckOut = () => {
   //   console.log(total);
   return (
     <div className="px-10 space-y-3">
-      <h1>Checkout</h1>
+      <h1 className="text-[48px] font-bold">Checkout</h1>
       <h1>
-        There are <span>3</span> products in your cart
+        There are{" "}
+        <span className="text-[#3BB77E] text-[16px]">{orderItems?.length}</span>{" "}
+        products in your cart
       </h1>
       <div>
         <div>
-          <h1>Billing Details</h1>
+          <h1 className="text-[24px] font-bold">Billing Details</h1>
           <form onSubmit={handleSubmit} noValidate="" action="">
-            <div className="flex">
-              <div className="space-y-5 w-[50%]">
+            <div className="lg:flex ">
+              <div className="space-y-5 lg:w-[50%]">
                 <div className="flex space-x-4  px-2">
                   <input
                     type="text"
@@ -112,17 +161,24 @@ const CheckOut = () => {
                   />
                 </div>
                 <div className="flex space-x-4 px-2">
-                  <input
+                  {/* <input
                     type="text-area"
                     name="additionalInfo"
                     id="additionalInfo"
                     required
                     placeholder="Additional Info"
-                    className="w-full px-4 py-5 border rounded-md  focus:outline-green-500  text-gray-900 "
-                  />
+                    className="w-full h-60 px-4  border rounded-md  focus:outline-green-500  text-gray-900 "
+                  /> */}
+                  <textarea
+                    name="additionalInfo"
+                    id="additionalInfo"
+                    required
+                    placeholder="Additional Info"
+                    className="textarea textarea-bordered w-full h-60 px-4  border rounded-md  focus:outline-green-500  text-gray-900 "
+                  ></textarea>
                 </div>
               </div>
-              <div className="w-[50%]">
+              <div className="lg:w-[50%] lg:px-0 px-2 py-10 lg:py-0 lg:pl-10 ">
                 <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 border rounded-md">
                   <h2 className="text-xl font-semibold">Your cart</h2>
                   <ul className="flex flex-col divide-y divide-gray-700">
@@ -173,24 +229,55 @@ const CheckOut = () => {
                       <span className="font-semibold"> ${total}</span>
                     </p>
                   </div>
-                  <div className="flex justify-end space-x-4">
-                    <button
-                      type="button"
-                      className="px-6 py-2 border rounded-md dark:border-green-400"
-                    >
-                      Back
-                      <span className="sr-only sm:not-sr-only">to shop</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="px-6 py-2 border rounded-md dark:bg-green-400 dark:text-gray-900 dark:border-green-400"
-                    >
-                      <span className="sr-only sm:not-sr-only">
-                        Continue to
-                      </span>
-                      Checkout
-                    </button>
+                </div>
+
+                <h1 className="text-[24px] font-bold pt-10 pb-3">Payment</h1>
+                <div className="space-y-3">
+                  <div className="flex  ">
+                    <input
+                      type="radio"
+                      name="radio-5"
+                      className="radio radio-success mr-2"
+                      required
+                      onBlur={() => setPaymentMethod("Bank Transfer")}
+                    />
+                    Direct Bank Transfer
                   </div>
+                  <div className="flex">
+                    <input
+                      type="radio"
+                      name="radio-5"
+                      className="radio radio-success mr-2"
+                      required
+                      onBlur={() => setPaymentMethod("cash on delivery")}
+                    />
+                    Cash On Delivery
+                  </div>
+                  <div className="flex">
+                    <input
+                      type="radio"
+                      name="radio-5"
+                      className="radio radio-success mr-2"
+                      required
+                      onBlur={() => setPaymentMethod("Online Getway")}
+                    />
+                    Online Getway
+                  </div>
+                  <div className="flex space-x-5 pt-2">
+                    <img src={paypal} alt="" />
+                    <img src={visa} alt="" />
+                    <img src={master} alt="" />
+                    <img src={zapper} alt="" />
+                  </div>
+                </div>
+                <div className="pt-10">
+                  <PrimaryButton
+                    type="submit"
+                    classes="flex px-8 py-3 font-semibold rounded-md bg-[#3BB77E] text-white "
+                  >
+                    {"Place an Order  "}
+                    <ArrowRightOnRectangleIcon className=" h-6 w-6" />
+                  </PrimaryButton>
                 </div>
               </div>
             </div>
