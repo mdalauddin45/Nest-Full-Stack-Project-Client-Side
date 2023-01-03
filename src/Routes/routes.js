@@ -8,6 +8,8 @@ import AllReports from "../Pages/Accounts/AdminAcounts/AllReports";
 import AllUsers from "../Pages/Accounts/AdminAcounts/AllUsers";
 import Profile from "../Pages/Accounts/AdminAcounts/Profile";
 import CategoryData from "../Pages/Accounts/AllUserAccount/CategoryData";
+import PaymentFail from "../Pages/Accounts/AllUserAccount/PaymentFail";
+import PaymentSuccess from "../Pages/Accounts/AllUserAccount/PaymentSuccess";
 import ShopNameData from "../Pages/Accounts/AllUserAccount/ShopNameData";
 import AddProducts from "../Pages/Accounts/HostAccounts/AddProducts";
 import Shop from "../Pages/Accounts/HostAccounts/Shop";
@@ -182,6 +184,14 @@ export const router = createBrowserRouter([
             ),
           },
         ],
+      },
+      {
+        path: "/payment/success",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "/payment/fail",
+        element: <PaymentFail />,
       },
     ],
   },

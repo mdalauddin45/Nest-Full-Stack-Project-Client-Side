@@ -52,6 +52,7 @@ const CheckOut = () => {
       addtionalInfo,
       paymetMethod,
       total,
+      orderDate: new Date(),
     };
     console.log(order);
     fetch("http://localhost:5000/confirmorder", {

@@ -13,7 +13,7 @@ import atm from "../../assets/Footer/payment-method.png";
 
 function Footer() {
   return (
-    <footer className="px-4 divide-y text-gray-900">
+    <footer className="px-4 divide-y text-gray-900 print:hidden">
       <div>
         <div className="grid grid-cols-2  gap-x-3 gap-y-8 lg:grid-cols-6">
           <div className="space-y-3">
