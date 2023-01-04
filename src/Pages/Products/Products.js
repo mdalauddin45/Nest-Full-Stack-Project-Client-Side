@@ -25,7 +25,7 @@ const Products = () => {
 
   return (
     <div>
-      <div className="flex justify-between px-10 lg:px-6 pt-10">
+      <div className="lg:flex md:flex justify-between px-10 lg:px-6 pt-10">
         <div>
           <h1 className="text-[32px]">Popular Products</h1>
         </div>
