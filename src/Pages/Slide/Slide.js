@@ -1,6 +1,4 @@
-import { CircleStackIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import { AiFillCiCircle } from "react-icons/ai";
 import slide1 from "../../assets/Slide/slider-1.png";
 import slide2 from "../../assets/Slide/slider-2.png";
 
@@ -59,14 +57,15 @@ const Slide = () => {
 
           <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 -bottom-8">
             <a
-              href="#slide4"
+              href="#slide1"
               className="btn btn-circle  btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
             >
-              <input
+              <p
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
                 checked
+                isActived
               />
             </a>
             <a
@@ -95,7 +94,7 @@ const Slide = () => {
               href="#slide4"
               className="btn btn-circle btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
             >
-              <p
+              <input
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
@@ -160,7 +159,7 @@ const Slide = () => {
           </div>
           <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 -bottom-8">
             <a
-              href="#slide4"
+              href="#slide1"
               className="btn btn-circle  btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
             >
               <p
@@ -247,7 +246,7 @@ const Slide = () => {
           </div>
           <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 -bottom-8">
             <a
-              href="#slide4"
+              href="#slide1"
               className="btn btn-circle  btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
             >
               <p
@@ -330,6 +329,53 @@ const Slide = () => {
               className="btn btn-circle  btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
             >
               ❯
+            </a>
+          </div>
+          <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 -bottom-8">
+            <a
+              href="#slide1"
+              className="btn btn-circle  btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
+            >
+              <p
+                type="radio"
+                name="radio-5"
+                className="radio w-4 h-4 radio-success"
+                checked
+              />
+            </a>
+            <a
+              href="#slide2"
+              className="btn btn-circle btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
+            >
+              <p
+                type="radio"
+                name="radio-5"
+                className="radio w-4 h-4 radio-success"
+                checked
+              />
+            </a>
+            <a
+              href="#slide3"
+              className="btn btn-circle btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
+            >
+              <p
+                type="radio"
+                name="radio-5"
+                className="radio w-4 h-4 radio-success"
+                checked
+              />
+            </a>
+            <a
+              href="#slide4"
+              className="btn btn-circle btn-outline hover:bg-[#3BB77E] border-none text-[#7E7E7E] hover:text-white"
+            >
+              <input
+                type="radio"
+                name="radio-5"
+                className="radio w-4 h-4 radio-success"
+                checked
+                isActived
+              />
             </a>
           </div>
         </div>
