@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { addOrder } from "../../api/services";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { motion } from "framer-motion";
 
 const Product = ({ product }) => {
   const { name, image, price, category, shop, rating, _id } = product;
@@ -31,9 +32,20 @@ const Product = ({ product }) => {
       })
       .catch((err) => console.error(err));
   };
+  <motion.div
+    animate={{
+      x: -51,
+      y: -100,
+      scale: 2,
+      rotate: 0,
+    }}
+  />;
 
   return (
-    <div className="card lg:w-68 md:w-68 w-68 h-96  shadow hover:shadow-[#3BB77E]">
+    <motion.div
+      whileHover={{ scale: 1.01 }}
+      className="card lg:w-68 md:w-68 w-68 h-96  shadow hover:shadow-[#3BB77E]"
+    >
       <figure>
         <img className="w-72 h-60 pt-2" src={image} alt="/" />
       </figure>
@@ -89,7 +101,7 @@ const Product = ({ product }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

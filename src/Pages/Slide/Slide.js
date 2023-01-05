@@ -64,8 +64,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
-                isActived
+                defaultChecked
               />
             </a>
             <a
@@ -76,7 +75,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -87,7 +86,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -98,7 +97,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
           </div>
@@ -166,7 +165,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -177,7 +176,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -188,7 +187,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -199,7 +198,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
           </div>
@@ -253,7 +252,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -264,7 +263,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -275,7 +274,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -286,7 +285,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
           </div>
@@ -340,7 +339,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -351,7 +350,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -362,7 +361,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
+                defaultChecked
               />
             </a>
             <a
@@ -373,8 +372,7 @@ const Slide = () => {
                 type="radio"
                 name="radio-5"
                 className="radio w-4 h-4 radio-success"
-                checked
-                isActived
+                defaultChecked
               />
             </a>
           </div>

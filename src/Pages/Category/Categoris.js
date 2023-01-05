@@ -73,14 +73,14 @@ const Categoris = () => {
   //   console.log(uniqueCategory);
 
   return (
-    <div className="px-5">
+    <div className="px-5 ">
       <h1 className="text-[#253D4E] font-semibold text-[32px]">
         Featured Categories
       </h1>
 
       <div
         className="
-        grid gap-6 grid-cols-3 md:grid-cols-5 lg:grid-cols-5 py-10"
+        grid gap-6 grid-cols-3 md:grid-cols-5 lg:grid-cols-5  pt-36 "
       >
         {categoryData.map((category) => (
           <CategoryCart key={category.id} category={category}></CategoryCart>

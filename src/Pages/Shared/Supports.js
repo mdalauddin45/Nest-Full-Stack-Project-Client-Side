@@ -46,7 +46,7 @@ const Supports = () => {
     },
   ];
   return (
-    <div className="grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-10 lg:px-6 py-10">
+    <div className="grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-10 lg:px-6 py-10 mt-24">
       {supportData.map((Supporrt) => (
         <Support key={Supporrt.id} Supporrt={Supporrt}></Support>
       ))}

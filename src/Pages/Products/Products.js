@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Product from "./Product";
+import { motion } from "framer-motion";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -24,8 +25,16 @@ const Products = () => {
   // console.log(uniqueCategory);
 
   return (
-    <div>
-      <div className="lg:flex md:flex justify-between px-10 lg:px-6 pt-10">
+    <motion.div
+      animate={{
+        x: 0,
+        y: -150,
+        scale: 1,
+        rotate: 0,
+        transition: { duration: 4 },
+      }}
+    >
+      <div className="lg:flex md:flex justify-between px-10 lg:px-6 mt-32">
         <div>
           <h1 className="text-[32px]">Popular Products</h1>
         </div>
@@ -42,11 +51,20 @@ const Products = () => {
           </ul>
         </div>
       </div>
-      <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-10 lg:px-6 py-10">
+      <motion.div
+        animate={{
+          x: 0,
+          y: 0,
+          scale: 1,
+          rotate: 0,
+          transition: { duration: 4 },
+        }}
+        className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-10 lg:px-6 py-10"
+      >
         {products?.slice(0, 10)?.map((product) => (
           <Product product={product} key={product._id}></Product>
         ))}
-      </div>
+      </motion.div>
       <div className="text-center">
         {products?.length > 10 && (
           <Link
@@ -57,7 +75,7 @@ const Products = () => {
           </Link>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

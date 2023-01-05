@@ -3,12 +3,22 @@ import { Link } from "react-router-dom";
 import img1 from "../../assets/Products/banner-10.png";
 import img2 from "../../assets/Products/banner-9.png";
 import Supports from "./Supports";
+import { motion } from "framer-motion";
 
 const FooterSection = () => {
   return (
-    <div className="px-5">
+    <motion.div
+      animate={{
+        x: 0,
+        y: -60,
+        scale: 1,
+        rotate: 0,
+        transition: { duration: 4 },
+      }}
+      className="px-5"
+    >
       <section
-        className="mt-20 rounded-xl"
+        className=" rounded-xl"
         style={{
           background: `url(${img1})`,
         }}
@@ -43,7 +53,7 @@ const FooterSection = () => {
         </div>
       </section>
       <Supports />
-    </div>
+    </motion.div>
   );
 };
 
