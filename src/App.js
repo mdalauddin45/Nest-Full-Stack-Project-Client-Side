@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import Spinner from "./components/Spinner/Spinner";
 import { router } from "./Routes/routes";
 
 function App() {
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = useState(false);
   setTimeout(() => {
     setLoading(false);
   }, 5000);
