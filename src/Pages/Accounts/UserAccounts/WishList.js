@@ -48,7 +48,7 @@ const WishList = () => {
         <h1 className="text-5xl text-white py-20">Wishlist</h1>
       </div> */}
       {wishlist.length > 0 ? (
-        <>
+        <div className="pb-32">
           <h1 className="text-5xl  px-5 pt-3">Your Wishlist</h1>
           <h1 className="text-2xl px-5 pb-3 pt-1">
             There are {wishlist?.length} products in this list
@@ -76,9 +76,9 @@ const WishList = () => {
               </tbody>
             </table>
           </div>
-        </>
+        </div>
       ) : (
-        <div className="text-center items-center py-10">
+        <div className="text-center items-center py-10 pb-20">
           <div className="flex justify-center">
             <img src={empty} alt="" />
           </div>

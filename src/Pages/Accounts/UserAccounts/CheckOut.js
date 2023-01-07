@@ -25,7 +25,7 @@ const CheckOut = () => {
     fetchProducts();
   }, [user]);
   const orderItems = orders?.orderItem;
-  //   console.log(orderItems);
+  console.log(orderItems);
   const _id = orders?._id;
 
   const handleSubmit = (e) => {
@@ -39,7 +39,38 @@ const CheckOut = () => {
     const postalCode = e.target.postalCode.value;
     const country = e.target.country.value;
     const addtionalInfo = e.target.additionalInfo.value;
-
+    if (paymetMethod === "cash on delivery") {
+      const order = {
+        service: _id,
+        name: firstName + " " + lastName,
+        address: address + " " + address2,
+        country,
+        city,
+        postalCode,
+        email,
+        orderItems,
+        addtionalInfo,
+        paymetMethod,
+        total,
+        orderDate: new Date(),
+      };
+      console.log(order);
+      fetch("http://localhost:5000/confirmorder", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+        },
+        body: JSON.stringify(order),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Order Placed Successfully");
+          window.location.replace(data.url);
+          console.log(data);
+        })
+        .catch((er) => console.error(er));
+    }
     const order = {
       service: _id,
       name: firstName + " " + lastName,
@@ -83,7 +114,7 @@ const CheckOut = () => {
         <span className="text-[#3BB77E] text-[16px]">{orderItems?.length}</span>{" "}
         products in your cart
       </h1>
-      <div>
+      <div className="pb-20">
         <div>
           <h1 className="text-[24px] font-bold">Billing Details</h1>
           <form onSubmit={handleSubmit} noValidate="" action="">
@@ -97,6 +128,7 @@ const CheckOut = () => {
                     required
                     placeholder="First Name"
                     className="w-full px-4 py-5 border rounded-md  focus:outline-green-500  text-gray-900 "
+                    defaultValue={orders?.name}
                   />
                   <input
                     type="text"
@@ -105,6 +137,7 @@ const CheckOut = () => {
                     required
                     placeholder="Last Name"
                     className="w-full px-4 py-5 border rounded-md  focus:outline-green-500  text-gray-900 "
+                    defaultValue={orders?.name}
                   />
                 </div>
                 <div className="flex space-x-4 px-2">
@@ -115,6 +148,7 @@ const CheckOut = () => {
                     required
                     placeholder="Address"
                     className="w-full px-4 py-5 border rounded-md  focus:outline-green-500  text-gray-900 "
+                    defaultValue={orders?.address}
                   />
                   <input
                     type="text"
@@ -272,13 +306,23 @@ const CheckOut = () => {
                   </div>
                 </div>
                 <div className="pt-10">
-                  <PrimaryButton
-                    type="submit"
-                    classes="flex px-8 py-3 font-semibold rounded-md bg-[#3BB77E] text-white "
-                  >
-                    {"Place an Order  "}
-                    <ArrowRightOnRectangleIcon className=" h-6 w-6" />
-                  </PrimaryButton>
+                  {orderItems?.length === "undefined" ? (
+                    <PrimaryButton
+                      type="submit"
+                      classes="flex px-8 py-3 font-semibold rounded-md bg-[#3BB77E] text-white  disabled"
+                    >
+                      {"Place an Order  "}
+                      <ArrowRightOnRectangleIcon className=" h-6 w-6" />
+                    </PrimaryButton>
+                  ) : (
+                    <PrimaryButton
+                      type="submit"
+                      classes="flex px-8 py-3 font-semibold rounded-md bg-[#3BB77E] text-white "
+                    >
+                      {"Place an Order  "}
+                      <ArrowRightOnRectangleIcon className=" h-6 w-6" />
+                    </PrimaryButton>
+                  )}
                 </div>
               </div>
             </div>

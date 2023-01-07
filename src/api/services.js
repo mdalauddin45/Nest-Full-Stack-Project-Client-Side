@@ -33,16 +33,19 @@ export const getProducts = async (email) => {
   return data;
 };
 
-// update a home
+// update a products
 export const updateProduct = async (productData) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
-    },
-    body: JSON.stringify(productData),
-  });
+  const response = await fetch(
+    `http://localhost:5000/product/${productData.id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+      },
+      body: JSON.stringify(productData),
+    }
+  );
 
   const data = await response.json();
   return data;
@@ -243,4 +246,17 @@ export const updateCheckOut = async (checkOutData) => {
   );
   const data = await response.json();
   return data;
+};
+
+// delete checkout
+export const deleteCheckOut = async (id) => {
+  const response = await fetch(`http://localhost:5000/checkout/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("nest-token")}`,
+    },
+  });
+  const result = await response.json();
+  return result;
 };

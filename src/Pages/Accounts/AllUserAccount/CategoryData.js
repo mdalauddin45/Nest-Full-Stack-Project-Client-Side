@@ -31,7 +31,7 @@ const CategoryData = () => {
         We found <span className="text-[#3BB77E]">{products?.length}</span>{" "}
         items for you!
       </h1>
-      <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-10 lg:px-0 ">
+      <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-10 lg:px-0 mb-24">
         {products?.map((product) => (
           <Product product={product} key={product._id}></Product>
         ))}

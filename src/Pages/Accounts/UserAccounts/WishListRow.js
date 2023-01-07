@@ -17,11 +17,12 @@ const WishListRow = ({ order, handleDelete }) => {
       email: user?.email,
       name,
       image,
-      price,
+      price: price * 1,
       category,
       shop,
       rating,
-      quentity: 1,
+      quantity: 1,
+      subtotal: price * 1,
     };
     addOrder(order)
       .then((data) => {

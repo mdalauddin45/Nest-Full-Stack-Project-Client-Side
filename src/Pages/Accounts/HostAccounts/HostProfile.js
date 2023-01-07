@@ -38,8 +38,42 @@ const HostProfile = () => {
     const facebook = event.target.facebook.value;
     const instagram = event.target.instagram.value;
     const pinterest = event.target.pinterest.value;
+
     // Image Upload
     const shopimage = event.target.image.files[0];
+    if (!shopimage) {
+      const UpdateShop = {
+        shopname,
+        since,
+        address,
+        phone,
+        twitter,
+        facebook,
+        instagram,
+        twitter,
+        pinterest,
+        email: user?.email,
+        description,
+      };
+      console.log(UpdateShop);
+      updateShop(UpdateShop).then((data) => {
+        console.log(data);
+      });
+      fetch(`http://localhost:5000/user/${user?.email}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(UpdateShop),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setLoading(false);
+          toast.success("Update Successfuly !");
+        });
+      return;
+    }
     imageUpload(shopimage)
       .then((res) => {
         const UpdateShop = {

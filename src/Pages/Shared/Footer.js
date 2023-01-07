@@ -15,17 +15,17 @@ import { motion } from "framer-motion";
 function Footer() {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0, x: 100, y: 0 }}
       animate={{
         opacity: 1,
         x: 0,
-        y: -100,
+        y: -20,
         scale: 1,
         rotate: 0,
         transition: { duration: 2 },
       }}
     >
-      <footer className="px-4 divide-y text-gray-900 print:hidden">
+      <footer className="px-4  divide-y -mb-20 text-gray-900 print:hidden mt-10">
         <div>
           <div className="grid grid-cols-2  gap-x-3 gap-y-8 lg:grid-cols-6">
             <div className="space-y-3">

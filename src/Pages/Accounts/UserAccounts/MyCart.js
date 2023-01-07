@@ -4,15 +4,9 @@ import {
 } from "@heroicons/react/24/solid";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-  Link,
-  Navigate,
-  useLocation,
-  useNavigate,
-  useNavigation,
-} from "react-router-dom";
-import {
-  addCheckout,
+  deleteCheckOut,
   deleteorder,
   getOrders,
   updateCheckOut,
@@ -43,6 +37,7 @@ const MyCart = () => {
   const handleDelete = (id) => {
     // console.log(id);
     deleteorder(id);
+    deleteCheckOut(id);
     if (id) {
       toast.success("Product Deleted Successfully");
     }
@@ -90,7 +85,6 @@ const MyCart = () => {
 
     updateCheckOut(checkOutData).then((data) => {
       console.log(data);
-      toast.success("Added Successfuly !");
       setLoading(!loading);
       navigate(from, { replace: true });
     });
@@ -99,12 +93,12 @@ const MyCart = () => {
   return (
     <div>
       {orderItem.length > 0 ? (
-        <>
-          <div className=" pt-5 pb-3">
-            <h1 className="text-5xl   px-5">Your Cart</h1>
-            <p className="text-2xl px-5">
+        <div className="pb-32">
+          <div className=" pt-5 space-y-2">
+            <h1 className="text-5xl   px-5 ">Your Cart</h1>
+            <h1 className="text-2xl px-5 pb-2">
               There are {orderItem?.length} products in your cart
-            </p>
+            </h1>
           </div>
 
           <div className="lg:flex  block">
@@ -221,9 +215,9 @@ const MyCart = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
-        <>
+        <div className="mb-16">
           <div className="text-center items-center py-10">
             <div className="flex justify-center">
               <img src={empty} alt="" />
@@ -239,7 +233,7 @@ const MyCart = () => {
               Shop Now
             </Link>
           </div>
-        </>
+        </div>
       )}
       <FooterSection />
     </div>
