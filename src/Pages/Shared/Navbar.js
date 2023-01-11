@@ -62,15 +62,6 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <Link
-                to="/"
-                className="hover:text-white py-2 rounded-lg hover:bg-[#3BB77E]"
-              >
-                <h1 className="flex pl-4">
-                  <ArrowPathIcon className="h-6 w-6 mr-3" />
-                  <p>Compare</p>
-                </h1>
-              </Link>
-              <Link
                 to="/wishlist"
                 className="hover:text-white py-2 rounded-lg hover:bg-[#3BB77E]"
               >
@@ -108,12 +99,6 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex"></div>
         <div className="navbar-end lg:flex">
           <ul className="menu menu-horizontal px-1 ">
-            <li className="hidden lg:flex">
-              <h1>
-                <ArrowPathIcon className="h-6 w-6" />
-                <p className="hidden lg:flex">Compare</p>
-              </h1>
-            </li>
             <NavLink
               to="/wishlist"
               className={({ isActive }) =>

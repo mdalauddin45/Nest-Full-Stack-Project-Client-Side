@@ -129,21 +129,26 @@ const AddProductForm = ({
 
             <div className="mt-3">
               {selectedImage ? (
-                <div className="h-52 overflow-y-scroll">
-                  <p className="text-center">
-                    <label className="btn btn-sm" htmlFor="uploadImage">
+                <div className=" w-full">
+                  {/* <p className="text-center ">
+                    <label
+                      className="btn btn-sm bg-[#3BB77E] text-white border-none "
+                      htmlFor="uploadImage"
+                    >
                       Upload new
                     </label>
-                  </p>
+                  </p> */}
 
                   <div className="flex justify-center ">
                     <PhotoProvider>
                       <PhotoView src={URL.createObjectURL(selectedImage)}>
-                        <img
-                          className="w-48 h-48"
-                          src={URL.createObjectURL(selectedImage)}
-                          alt=""
-                        />
+                        <label htmlFor="uploadImage">
+                          <img
+                            className="w-full h-64 object-cover rounded-md"
+                            src={URL.createObjectURL(selectedImage)}
+                            alt=""
+                          />
+                        </label>
                       </PhotoView>
                     </PhotoProvider>
                   </div>
