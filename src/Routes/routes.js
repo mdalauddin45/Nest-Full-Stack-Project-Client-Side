@@ -24,6 +24,7 @@ import UserDashboard from "../Pages/Accounts/UserAccounts/UserDashboard";
 import WishList from "../Pages/Accounts/UserAccounts/WishList";
 import AllProducts from "../Pages/Products/AllProducts";
 import ProductDetails from "../Pages/Products/ProductDetails";
+import ErrorPage from "../Pages/Shared/ErrorPage";
 import Login from "../Pages/SignIn&Up/Login";
 import SignUp from "../Pages/SignIn&Up/SignUp";
 import Welcome from "../Pages/Welcome/Welcome";
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
       {
