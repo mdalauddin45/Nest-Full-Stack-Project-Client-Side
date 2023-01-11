@@ -7,6 +7,7 @@ import { makeHost } from "../../api/User";
 import PrimaryButton from "../../components/Button/PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../contexts/AuthProvider";
+import img1 from "../../assets/Account/sign.webp";
 
 const SignUp = () => {
   const [role, setRole] = useState(null);
@@ -90,10 +91,14 @@ const SignUp = () => {
   };
   return (
     <div className="flex justify-center items-center pt-8">
+      <figure>
+        <img
+          src={img1}
+          className="hidden md:block lg:block rounded-xl h-[600px] w-[500px] "
+          alt="Album"
+        />
+      </figure>
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-900">
-        <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">Create an Account</h1>
-        </div>
         <form
           onSubmit={handleSubmit}
           noValidate=""
@@ -101,6 +106,7 @@ const SignUp = () => {
           className="space-y-12 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
+            <h1 className=" text-4xl font-bold pb-5">Create an Account</h1>
             <div>
               <input
                 type="text"
