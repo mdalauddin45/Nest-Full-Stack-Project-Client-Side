@@ -21,7 +21,7 @@ const Menubar = ({ role }) => {
         </nav>
       </div>
 
-      <div className="px-2">
+      <div>
         <PrimaryButton
           handler={logout}
           classes="flex block w-full  items-center pl-6 py-4 border rounded-lg mt-5 text-xl font-bold"

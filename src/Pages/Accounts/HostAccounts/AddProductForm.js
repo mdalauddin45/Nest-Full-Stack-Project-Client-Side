@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
 import SmallSpinner from "../../../components/Spinner/SmallSpinner";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import { GrGallery } from "react-icons/gr";
+
 const AddProductForm = ({
   handleSubmit,
   loading,
@@ -8,6 +11,12 @@ const AddProductForm = ({
   preview,
   uploadButtonText,
 }) => {
+  const [selectedImage, setSelectedImage] = useState();
+  const imageChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+    }
+  };
   return (
     <>
       <div className="flex justify-center mt-6">
@@ -118,24 +127,49 @@ const AddProductForm = ({
               </div>
             </div>
 
-            <div className="flex space-x-4 items-center">
-              <label
-                htmlFor="image"
-                className="p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  hover:bg-[#3BB77E]  hover:border-white hover:text-white"
-              >
-                {uploadButtonText}
-                <input
-                  type="file"
-                  onChange={(event) => handleImageChange(event.target.files[0])}
-                  name="image"
-                  id="image"
-                  accept="image/*"
-                  hidden
-                />
-              </label>
-              {preview && (
-                <img src={preview} className="w-16 h-16" alt="preview_img" />
+            <div className="mt-3">
+              {selectedImage ? (
+                <div className="h-52 overflow-y-scroll">
+                  <p className="text-center">
+                    <label className="btn btn-sm" htmlFor="uploadImage">
+                      Upload new
+                    </label>
+                  </p>
+
+                  <div className="flex justify-center ">
+                    <PhotoProvider>
+                      <PhotoView src={URL.createObjectURL(selectedImage)}>
+                        <img
+                          className="w-48 h-48"
+                          src={URL.createObjectURL(selectedImage)}
+                          alt=""
+                        />
+                      </PhotoView>
+                    </PhotoProvider>
+                  </div>
+                </div>
+              ) : (
+                <label
+                  htmlFor="uploadImage"
+                  className="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300"
+                >
+                  <div className="flex flex-col py-2 items-center justify-center">
+                    <GrGallery className="w-8 h-8" />
+                    <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                      Select a photo
+                    </p>
+                  </div>
+                </label>
               )}
+              <input
+                required
+                id="uploadImage"
+                onChange={imageChange}
+                accept="image/*"
+                hidden
+                type="file"
+                className="opacity-0"
+              />
             </div>
 
             <div className="space-y-2">

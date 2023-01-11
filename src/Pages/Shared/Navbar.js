@@ -14,10 +14,10 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Navbar = () => {
-  const [orders, setOrders] = useState([]);
+  // const [orders, setOrders] = useState([]);
   // const [wishlist, setWishlist] = useState([]);
   const { user } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   // const fetchProducts = () =>
   //   getOrders(user?.email).then((data) => {
   //     setOrders(data);
@@ -27,14 +27,14 @@ const Navbar = () => {
   // useEffect(() => {
   //   fetchProducts();
   // }, [user, loading]);
-  const handleDelete = (id) => {
-    // console.log(id);
-    deleteorder(id);
-    if (id) {
-      toast.success("Product Deleted Successfully");
-    }
-    setLoading(!loading);
-  };
+  // const handleDelete = (id) => {
+  //   // console.log(id);
+  //   deleteorder(id);
+  //   if (id) {
+  //     toast.success("Product Deleted Successfully");
+  //   }
+  //   setLoading(!loading);
+  // };
 
   return (
     <div className="print:hidden">
