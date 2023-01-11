@@ -17,7 +17,7 @@ const DashboardLayout = () => {
   }, [user]);
   // console.log(role);
   return (
-    <div className="relative min-h-screen md:flex lg:flex    lg:py-20  ">
+    <div className="relative min-h-screen md:flex lg:flex   lg:py-20  ">
       <Menubar role={role}></Menubar>
       <div>
         <Outlet />

@@ -13,8 +13,8 @@ const ShopNameData = () => {
   console.log(shopname);
   return (
     <div>
-      <div className="lg:flex md:flex">
-        <div className="lg:w-96 md:w-96 md:pl-3">
+      <div className="lg:flex md:flex pb-20">
+        <div className="lg:w-96 md:w-96 md:pl-3 ">
           <ShopProfile shopname={shopname}></ShopProfile>
         </div>
         <div className="grid gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 px-10 lg:px-6 py-10 lg:py-0 md:py-0">

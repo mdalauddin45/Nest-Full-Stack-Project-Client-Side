@@ -9,8 +9,9 @@ const AddProducts = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  const [preview, setPreview] = useState("");
-  const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+
+  const [selectedImage, setSelectedImage] = useState();
+
   // const [selected, setSelected] = useState(new Date());
   // const date = format(selected, "Pp");
   // console.log(date);
@@ -23,18 +24,26 @@ const AddProducts = () => {
     const rating = form.rating.value;
     const option = form.option.value;
     const description = form.description.value;
-    const image = event.target.image.files[0];
+
     // console.log(product, price, shopName, rating, category, image, description);
     setLoading(true);
-    imageUpload(image)
-      .then((res) => {
+    const formData = new FormData();
+    formData.append("image", selectedImage);
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
         const categoriData = {
           name,
           price,
           shop,
           rating,
           category: option,
-          image: res.data.display_url,
+          image: imageData.data.display_url,
           email: user?.email,
           seller: {
             name: user?.displayName,
@@ -43,7 +52,7 @@ const AddProducts = () => {
           },
           description,
         };
-        // console.log(categoriData);
+        console.log(categoriData);
         addProduct(categoriData).then((data) => {
           // console.log(data);
           setLoading(false);
@@ -57,22 +66,19 @@ const AddProducts = () => {
       });
   };
 
-  const handleImageChange = (image) => {
-    // console.log(image);
-    setPreview(window.URL.createObjectURL(image));
-    setUploadButtonText(image?.name?.slice(0, 30));
+  const imageChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+    }
   };
   return (
-    <div className="lg:px-20 md:px-10">
-      <h1 className="text-3xl font-bold text-gray-800  text-center">
-        Add Product
-      </h1>
+    <div className="lg:px-20 md:px-10 px-10">
       <AddProductForm
         handleSubmit={handleSubmit}
         loading={loading}
-        handleImageChange={handleImageChange}
-        preview={preview}
-        uploadButtonText={uploadButtonText}
+        selectedImage={selectedImage}
+        setSelectedImage={setSelectedImage}
+        imageChange={imageChange}
       />
     </div>
   );

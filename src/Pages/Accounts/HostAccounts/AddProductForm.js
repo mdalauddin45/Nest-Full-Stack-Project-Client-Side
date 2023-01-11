@@ -2,25 +2,19 @@ import React, { useState } from "react";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
 import SmallSpinner from "../../../components/Spinner/SmallSpinner";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { GrGallery } from "react-icons/gr";
+import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
 
 const AddProductForm = ({
   handleSubmit,
   loading,
-  handleImageChange,
-  preview,
-  uploadButtonText,
+
+  selectedImage,
+  imageChange,
 }) => {
-  const [selectedImage, setSelectedImage] = useState();
-  const imageChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-    }
-  };
   return (
     <>
-      <div className="flex justify-center mt-6">
-        <div className="w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50">
+      <div className=" mt-6">
+        <div className="w-[600px] lg:w-[1000px]  p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50">
           <form
             onSubmit={handleSubmit}
             className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -41,7 +35,7 @@ const AddProductForm = ({
             </div>
 
             <div className="flex justify-between gap-2">
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-sm w-full">
                 <label htmlFor="price" className="block text-gray-600">
                   Price
                 </label>
@@ -55,7 +49,7 @@ const AddProductForm = ({
                 />
               </div>
 
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-sm w-full">
                 <label htmlFor="shopname" className="block text-gray-600">
                   Shop Name
                 </label>
@@ -71,7 +65,7 @@ const AddProductForm = ({
             </div>
 
             <div className="flex justify-between gap-2">
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-sm w-full">
                 <label htmlFor="rating" className="block text-gray-600">
                   Rating
                 </label>
@@ -85,7 +79,7 @@ const AddProductForm = ({
                 />
               </div>
 
-              <div className="space-y-1 text-sm">
+              <div className="space-y-1 text-sm w-full">
                 <label htmlFor="category" className="block text-gray-600">
                   Category
                 </label>
@@ -158,8 +152,8 @@ const AddProductForm = ({
                   htmlFor="uploadImage"
                   className="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300"
                 >
-                  <div className="flex flex-col py-2 items-center justify-center">
-                    <GrGallery className="w-8 h-8" />
+                  <div className="flex flex-col py-2 items-center justify-center h-60">
+                    <ArrowUpTrayIcon className="w-8 h-8" />
                     <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                       Select a photo
                     </p>

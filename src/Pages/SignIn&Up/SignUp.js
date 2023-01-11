@@ -46,7 +46,7 @@ const SignUp = () => {
           image: imageData.data.display_url,
           role,
         };
-        // console.log(userData);
+        console.log(userData);
 
         // Create User
         createUser(email, password)
@@ -61,6 +61,7 @@ const SignUp = () => {
 
                 if (userData.role === "host") {
                   makeHost(userData);
+                  console.log("host re paice");
                 }
                 toast.success("Sign up Succesfuly");
                 setLoading(false);

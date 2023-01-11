@@ -69,7 +69,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="px-4 py-16  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className=" lg:flex md:flex overflow-hidden bg-white  rounded ">
         <div className="border lg:w-[334px] lg:h-[334px] rounded-lg ">
           <img src={image} alt="" className="object-cover w-full  " />
@@ -161,7 +161,7 @@ const ProductDetails = () => {
           </>
         )}
       </div>
-      <div>
+      <div className="pt-20">
         <FooterSection />
       </div>
     </div>
