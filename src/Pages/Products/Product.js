@@ -47,7 +47,11 @@ const Product = ({ product }) => {
       className="card lg:w-68 md:w-68 w-68 h-96  shadow hover:shadow-[#3BB77E]"
     >
       <figure>
-        <img className="w-72 h-60 pt-2" src={image} alt="/" />
+        <img
+          className="w-72 h-60 pt-2 ease-in-out duration-500 transform hover:scale-125"
+          src={image}
+          alt="/"
+        />
       </figure>
       <div className="px-3 ">
         <Link

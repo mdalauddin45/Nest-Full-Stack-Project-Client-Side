@@ -13,7 +13,7 @@ const BestSells = () => {
       .then((res) => res.json())
       .then((data) => setBestSells(data));
   }, []);
-  console.log(bestSells);
+  //   console.log(bestSells);
   return (
     <motion.div
       animate={{

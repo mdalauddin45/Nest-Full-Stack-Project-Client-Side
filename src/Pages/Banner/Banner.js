@@ -9,7 +9,7 @@ const Banner = () => {
       .then((res) => res.json())
       .then((data) => setBannerImg(data));
   }, []);
-  console.log(bannerImg);
+  //   console.log(bannerImg);
   return (
     <div className=" ">
       <Splide
@@ -32,8 +32,8 @@ const Banner = () => {
           speed: "2000",
         }}
       >
-        {bannerImg?.map((banner) => (
-          <SplideSlide className="relative ">
+        {bannerImg?.map((banner, uxi) => (
+          <SplideSlide key={uxi} className="relative ">
             <div className="w-full my-10">
               <img
                 className=" w-full carousel-item relative transform rounded-lg h-[370px] md:h-[467px] lg:h-[538px]"
