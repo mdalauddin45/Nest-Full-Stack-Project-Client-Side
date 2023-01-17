@@ -69,7 +69,7 @@ const Products = () => {
         {products?.length > 10 && (
           <Link
             to="/products"
-            className="bg-[#3BB77E] text-white px-4 py-2 rounded-lg font-bold"
+            className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded  hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
           >
             Load More
           </Link>

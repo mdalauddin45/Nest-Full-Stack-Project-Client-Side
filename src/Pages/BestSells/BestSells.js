@@ -26,7 +26,7 @@ const BestSells = () => {
     >
       <div className=" mb-4 sm:mb-10 ">
         <div className="my-3">
-          <h1 className=" font-bold text-xl sm:text-2xl text-[#253D4E]">
+          <h1 className=" font-bold text-xl sm:text-2xl text-[#253D4E] px-10">
             Daily Best Sells
           </h1>
         </div>
