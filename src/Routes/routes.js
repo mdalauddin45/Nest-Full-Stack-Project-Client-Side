@@ -70,7 +70,6 @@ export const router = createBrowserRouter([
         path: "/shop-cart",
         element: (
           <PrivateRoute>
-            {" "}
             <MyCart />
           </PrivateRoute>
         ),
