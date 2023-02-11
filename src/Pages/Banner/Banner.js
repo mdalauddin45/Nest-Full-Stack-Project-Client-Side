@@ -42,10 +42,10 @@ const Banner = () => {
               />
               <div
                 className=" absolute bottom-16
-               md:bottom-36 lg:bottom-60 px-16  "
+               md:bottom-36  px-16  "
               >
-                <div className="  ">
-                  <h3 className="text-[46px] lg:text-6xl font-semibold text-[#253D4E]">
+                <div className="">
+                  <h3 className="text-[40px] lg:text-6xl  font-semibold text-[#253D4E] ">
                     {banner?.title}
                   </h3>
                   <h2 className="lg:text-[30px] text-[22px] text-[#7E7E7E] pb-2 lg:py-5">
