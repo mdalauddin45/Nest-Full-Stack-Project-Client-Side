@@ -8,7 +8,7 @@ const AllUsers = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://nest-server-side.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [loading]);

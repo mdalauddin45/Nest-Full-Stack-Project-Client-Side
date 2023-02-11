@@ -9,7 +9,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 const BestSells = () => {
   const [bestSells, setBestSells] = React.useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://nest-server-side.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setBestSells(data));
   }, []);

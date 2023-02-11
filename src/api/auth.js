@@ -5,7 +5,7 @@ export const setAuthToken = (user) => {
   };
 
   //   Save user in db & get token
-  fetch(`http://localhost:5000/user/${user?.email}`, {
+  fetch(`https://nest-server-side.vercel.app/user/${user?.email}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -20,7 +20,7 @@ export const setAuthToken = (user) => {
     });
 };
 // export const updateUserShop = (UpdateShop) => {
-//   fetch(`http://localhost:5000/user/${UpdateShop?.email}`, {
+//   fetch(`https://nest-server-side.vercel.app/user/${UpdateShop?.email}`, {
 //     method: "PATCH",
 //     headers: {
 //       "content-type": "application/json",
@@ -37,7 +37,7 @@ export const setAuthToken = (user) => {
 
 //get filtered products for seller
 export const getUser = async (email) => {
-  const response = await fetch(`http://localhost:5000/user/${email}`, {
+  const response = await fetch(`https://nest-server-side.vercel.app/user/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",

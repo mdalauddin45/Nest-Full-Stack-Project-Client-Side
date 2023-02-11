@@ -5,7 +5,7 @@ import { useState } from "react";
 const Orders = () => {
   const [orderItem, setOrderItem] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://nest-server-side.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

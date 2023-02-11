@@ -55,7 +55,7 @@ const CheckOut = () => {
         orderDate: new Date(),
       };
       console.log(order);
-      fetch("http://localhost:5000/confirmorder", {
+      fetch("https://nest-server-side.vercel.app/confirmorder", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -86,7 +86,7 @@ const CheckOut = () => {
       orderDate: new Date(),
     };
     console.log(order);
-    fetch("http://localhost:5000/confirmorder", {
+    fetch("https://nest-server-side.vercel.app/confirmorder", {
       method: "POST",
       headers: {
         "content-type": "application/json",

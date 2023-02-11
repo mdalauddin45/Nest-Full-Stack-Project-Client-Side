@@ -59,7 +59,7 @@ const HostProfile = () => {
       updateShop(UpdateShop).then((data) => {
         console.log(data);
       });
-      fetch(`http://localhost:5000/user/${user?.email}`, {
+      fetch(`https://nest-server-side.vercel.app/user/${user?.email}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const HostProfile = () => {
           console.log(data);
         });
 
-        fetch(`http://localhost:5000/user/${user?.email}`, {
+        fetch(`https://nest-server-side.vercel.app/user/${user?.email}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

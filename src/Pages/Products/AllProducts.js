@@ -6,7 +6,7 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://nest-server-side.vercel.app/products")
       // fetch("products.json")
       .then((res) => res.json())
       .then((data) => {
