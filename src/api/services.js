@@ -22,7 +22,7 @@ export const getAllProduct = async () => {
 
 //get filtered products for seller
 export const getProducts = async (email) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/products/${email}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/products/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -36,7 +36,7 @@ export const getProducts = async (email) => {
 // update a products
 export const updateProduct = async (productData) => {
   const response = await fetch(
-    `https://nest-server-side.vercel.app/product/${productData.id}`,
+    `https://nest-mauve.vercel.app/product/${productData.id}`,
     {
       method: "PATCH",
       headers: {
@@ -53,7 +53,7 @@ export const updateProduct = async (productData) => {
 
 // Delete a home
 export const deleteproduct = async (id) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/product/${id}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/product/${id}`, {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
@@ -65,7 +65,7 @@ export const deleteproduct = async (id) => {
 };
 // get add order
 export const addOrder = async (orderData) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/orders`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/orders`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -80,7 +80,7 @@ export const addOrder = async (orderData) => {
 
 //get filtered order for customer
 export const getOrders = async (email) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/orders/${email}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/orders/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -93,7 +93,7 @@ export const getOrders = async (email) => {
 
 // delet order
 export const deleteorder = async (id) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/orders/${id}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/orders/${id}`, {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
@@ -106,7 +106,7 @@ export const deleteorder = async (id) => {
 
 // get wishlist
 export const addWishlist = async (wishlistData) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/wishlist`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/wishlist`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -121,7 +121,7 @@ export const addWishlist = async (wishlistData) => {
 
 export const deleteWishlit = async (id) => {
   console.log(id);
-  const response = await fetch(`https://nest-server-side.vercel.app/wishlist/${id}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/wishlist/${id}`, {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
@@ -134,7 +134,7 @@ export const deleteWishlit = async (id) => {
 
 //get filtered products for wishlist
 export const getWishlist = async (email) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/wishlist/${email}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/wishlist/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -147,7 +147,7 @@ export const getWishlist = async (email) => {
 
 // post a shop
 export const addShop = async (shopData) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/shops`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/shops`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -161,7 +161,7 @@ export const addShop = async (shopData) => {
 };
 //get filtered shops for shop owner
 export const getShop = async (shop) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/shops/${shop}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/shops/${shop}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -175,7 +175,7 @@ export const getShop = async (shop) => {
 // update a shop
 export const updateShop = async (shopData) => {
   const response = await fetch(
-    `https://nest-server-side.vercel.app/shops/${shopData?.email}`,
+    `https://nest-mauve.vercel.app/shops/${shopData?.email}`,
     {
       method: "PATCH",
       headers: {
@@ -192,7 +192,7 @@ export const updateShop = async (shopData) => {
 // update a shop
 export const updateUser = async (shopData) => {
   const response = await fetch(
-    `https://nest-server-side.vercel.app/shops/${shopData?.email}`,
+    `https://nest-mauve.vercel.app/shops/${shopData?.email}`,
     {
       method: "PATCH",
       headers: {
@@ -207,7 +207,7 @@ export const updateUser = async (shopData) => {
 };
 // post a shop
 export const addCheckout = async (CheckOutData) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/checkout`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/checkout`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -221,7 +221,7 @@ export const addCheckout = async (CheckOutData) => {
 };
 
 export const getCheckout = async (email) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/checkout/${email}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/checkout/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -234,7 +234,7 @@ export const getCheckout = async (email) => {
 // update a shop
 export const updateCheckOut = async (checkOutData) => {
   const response = await fetch(
-    `https://nest-server-side.vercel.app/checkout/${checkOutData?.email}`,
+    `https://nest-mauve.vercel.app/checkout/${checkOutData?.email}`,
     {
       method: "PATCH",
       headers: {
@@ -250,7 +250,7 @@ export const updateCheckOut = async (checkOutData) => {
 
 // delete checkout
 export const deleteCheckOut = async (id) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/checkout/${id}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/checkout/${id}`, {
     method: "DELETE",
     headers: {
       "content-type": "application/json",

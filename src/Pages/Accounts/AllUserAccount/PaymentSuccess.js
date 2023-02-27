@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     fetch(
-      `https://nest-server-side.vercel.app/confirmorder/by-transaction-id/${transactionId}`
+      `https://nest-mauve.vercel.app/confirmorder/by-transaction-id/${transactionId}`
     )
       .then((res) => res.json())
       .then((data) => setOrder(data));

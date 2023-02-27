@@ -16,7 +16,7 @@ export const imageUpload = async (image) => {
 
 // Add a Category
 export const addProduct = async (categoriData) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/products`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/products`, {
     method: "POST",
     headers: {
       "content-type": "application/json",

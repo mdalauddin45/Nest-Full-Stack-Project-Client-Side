@@ -59,7 +59,7 @@ const HostProfile = () => {
       updateShop(UpdateShop).then((data) => {
         console.log(data);
       });
-      fetch(`https://nest-server-side.vercel.app/user/${user?.email}`, {
+      fetch(`https://nest-mauve.vercel.app/user/${user?.email}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const HostProfile = () => {
           console.log(data);
         });
 
-        fetch(`https://nest-server-side.vercel.app/user/${user?.email}`, {
+        fetch(`https://nest-mauve.vercel.app/user/${user?.email}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

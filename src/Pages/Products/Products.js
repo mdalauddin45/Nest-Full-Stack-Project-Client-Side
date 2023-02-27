@@ -8,7 +8,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://nest-server-side.vercel.app/products")
+    fetch("https://nest-mauve.vercel.app/products")
       // fetch("products.json")
       .then((res) => res.json())
       .then((data) => {

@@ -7,7 +7,7 @@ const AllBuyer = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://nest-server-side.vercel.app/users")
+    fetch("https://nest-mauve.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [loading]);

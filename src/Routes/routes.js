@@ -58,13 +58,13 @@ export const router = createBrowserRouter([
         path: "/category/:category",
         element: <CategoryData />,
         loader: ({ params }) =>
-          fetch(`https://nest-server-side.vercel.app/category/${params.category}`),
+          fetch(`https://nest-mauve.vercel.app/category/${params.category}`),
       },
       {
         path: "/shop/:shop",
         element: <ShopNameData />,
         loader: ({ params }) =>
-          fetch(`https://nest-server-side.vercel.app/shop/${params.shop}`),
+          fetch(`https://nest-mauve.vercel.app/shop/${params.shop}`),
       },
       {
         path: "/shop-cart",
@@ -86,7 +86,7 @@ export const router = createBrowserRouter([
         path: "/product/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`https://nest-server-side.vercel.app/product/${params.id}`),
+          fetch(`https://nest-mauve.vercel.app/product/${params.id}`),
       },
       {
         path: "/account",

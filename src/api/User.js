@@ -16,7 +16,7 @@ export const hostRequest = async (user) => {
 };
 
 export const getRole = async (email) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/user/${email}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/user/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -43,7 +43,7 @@ export const getRole = async (email) => {
 
 export const makeHost = async (user) => {
   delete user._id;
-  const response = await fetch(`https://nest-server-side.vercel.app/user/${user?.email}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/user/${user?.email}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -57,7 +57,7 @@ export const makeHost = async (user) => {
 };
 // Delete a User
 export const deleteUser = async (id) => {
-  const response = await fetch(`https://nest-server-side.vercel.app/users/${id}`, {
+  const response = await fetch(`https://nest-mauve.vercel.app/users/${id}`, {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
